@@ -1,11 +1,11 @@
-import { TicTacToe } from "../components/TicTacToe";
+import { MemoryGame } from "../components/MemoryGame";
 
 function HomePage() {
   // ?search?q={query}
 
   return (
     <div>
-      <TicTacToe />
+      <MemoryGame />
     </div>
   );
 }

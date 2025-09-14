@@ -10,11 +10,11 @@ export function TicTacToe() {
   const squareContainerSize = 400;
 
   const [board, setBoard] = React.useState<{ id: number; value: string }[]>([]);
-  const [rowsState, setRowsState] = useState(3);
+  const [rowsState] = useState(3);
   const [winner, setWinner] = useState(false);
 
   const prevValue = useRef("");
-  const [containerSize, setContainerSize] = React.useState(300);
+  const [containerSize] = React.useState(300);
 
   function generateInitialBoard() {
     const boardArray = [];
@@ -37,10 +37,10 @@ export function TicTacToe() {
     // setRowsState(3);
   }
 
-  function handleContainerSize(size: number) {
-    // setContainerSize(size);
-    // squareContainerSize = size;
-  }
+  // function handleContainerSize() {
+  //   // setContainerSize(size);
+  //   // squareContainerSize = size;
+  // }
 
   const WINNER_PATTERN = [
     [1, 2, 3],
@@ -143,9 +143,9 @@ export function TicTacToe() {
             value={containerSize}
             type="number"
             className="border"
-            onChange={(e) =>
-              handleContainerSize(e.target.value as unknown as number)
-            }
+            // onChange={(e) =>
+            //   handleContainerSize(e.target.value as unknown as number)
+            // }
           />
         </div>
       </div>
