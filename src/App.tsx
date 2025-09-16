@@ -8,6 +8,7 @@ import MemoryGamePage from "./pages/MemoryGamePage";
 import RecursiveMessagesPage from "./pages/RecursiveMessagesPage";
 import TicTacToePage from "./pages/TicTacToePage";
 import FileExplorer from "./pages/FileExplorer";
+import PaginationPage from "./pages/PaginationPage";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -29,6 +30,7 @@ function App() {
           />
           <Route path="/tic-tac-toe" element={<TicTacToePage />} />
           <Route path="/file-explorer" element={<FileExplorer />} />
+          <Route path="/pagination" element={<PaginationPage />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -26,6 +26,10 @@ function HomePage() {
       path: "/file-explorer",
       title: "File Explorer",
     },
+    {
+      path: "/pagination",
+      title: "Pagination Reusable Component",
+    },
   ];
 
   return (
