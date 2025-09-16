@@ -8,7 +8,7 @@
  * const handleClick = () => console.log("clicked");
  * throttleClick(handleClick);
  */
-let lastTimeWasClicked = 0; //kept outside to not lose the value at each execution
+let lastTimeWasClicked = 0; //kept outside to not lose the value at each execution of fu
 export function useThrottle(throttleTime: number = 1000) {
   //to call a fn not  more aften than x times
 
