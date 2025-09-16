@@ -8,7 +8,9 @@
 
 ## File Explorer
 
-## Nested Recursive messages with many functions
+## Nested Recursive messages with many functionalities
+
+## Reusable Pagination component
 
 
 
