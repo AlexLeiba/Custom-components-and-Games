@@ -186,9 +186,6 @@ function FileExplorer() {
       }
       return folderData;
     });
-
-    // console.log(" 🚀 PREV", prevData);
-    // console.log(" 🚀 RES", result);
   }
 
   function handleRecursiveDeleteFolderOrFile(
@@ -214,7 +211,6 @@ function FileExplorer() {
   }
 
   function handleDelete(id: number) {
-    console.log("🚀 ~ handleDelete ~ id:", id);
     setFilesData((prev) => {
       return handleRecursiveDeleteFolderOrFile(prev, id, "folder");
     });

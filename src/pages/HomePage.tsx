@@ -30,6 +30,10 @@ function HomePage() {
       path: "/pagination",
       title: "Pagination Reusable Component",
     },
+    {
+      path: "/custom-hooks",
+      title: "Custom Hooks",
+    },
   ];
 
   return (
