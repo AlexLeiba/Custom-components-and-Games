@@ -34,6 +34,10 @@ function HomePage() {
       path: "/custom-hooks",
       title: "Custom Hooks",
     },
+    {
+      path: "/multistep-form-1",
+      title: "Multistep Form - Step 1",
+    },
   ];
 
   return (
