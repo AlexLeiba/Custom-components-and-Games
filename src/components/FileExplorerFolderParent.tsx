@@ -14,7 +14,6 @@ export function FileExplorerFolderParent({
   handleAddFile: (id: number, title: string) => void;
   handleDelete: (id: number) => void;
 }) {
-  //   console.log("🚀 ~ FileExplorerFolderParent ~ data:", data);
   const [showFiles, setShowFiles] = useState(false);
   const [newValueTitle, setNewValueTitle] = useState("");
   const [form, setForm] = useState({
