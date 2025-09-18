@@ -6,29 +6,10 @@ import type z from "zod";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Checkbox } from "../../components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "../../components/ui/select";
-
-const LANGUAGE_LEVEL = ["beginner", "intermediate", "advanced"] as const;
-const EXPERIENCE = [
-  "1 Year",
-  "2 Years",
-  "3 Years",
-  "4 Years",
-  "5 Years",
-  "6 Years",
-  "7 Years",
-  "8 Years",
-  "9 Years",
-  "10 Years",
-] as const;
+import { useNavigate } from "react-router-dom";
 
 function ThirdStep() {
-  // const router = useNavigate();
+  const router = useNavigate();
   const formMethods = useForm({
     resolver: zodResolver(thirdStepSchema),
     defaultValues: {
@@ -41,12 +22,9 @@ function ThirdStep() {
   const {
     handleSubmit,
     formState: { errors },
-    watch,
 
     control,
   } = formMethods;
-  console.log("🚀 ~ ThirdStep ~ watch:", watch("languageData"));
-  console.log("🚀 ~ ThirdStep ~ watch:", watch("programmingLanguagesData"));
 
   type FormDataType = z.infer<typeof thirdStepSchema>;
 
@@ -54,6 +32,7 @@ function ThirdStep() {
     control,
     name: "languageData",
   });
+
   const {
     fields: programmingLanguagesFields,
     append: programmingLanguagesAppend,
@@ -71,27 +50,10 @@ function ThirdStep() {
   });
 
   function onSubmit(data: FormDataType) {
-    console.log("data=>>>>>>>>>>>>>", data);
-    // router("/multistep-form-4");
-    //Pick<FormDataType);
+    console.log("data", data);
+    router("/multistep-form-4");
   }
 
-  //   useEffect(() => {
-  //     if (!isLanguagesChecked) {
-  //       reset({
-  //         languages: false,
-  //
-  //         languageData: [],
-  //       });
-  //     }
-  //
-  //     if (!isProgrammingLanguagesChecked) {
-  //       reset({
-  //         programmingLanguages: false,
-  //         programmingLanguagesData: [],
-  //       });
-  //     }
-  //   }, [isLanguagesChecked, isProgrammingLanguagesChecked]);
   return (
     <div>
       {" "}
@@ -149,88 +111,58 @@ function ThirdStep() {
             //first element of an array of known languages
 
             <>
-              {fields.length === 0 && (
-                <div className="border p-2 rounded-md">
-                  <p>Languages</p>
-                  <Input
-                    placeholder="Language Name"
-                    {...formMethods.register("languageData.0.name")}
-                  />
-
-                  <Controller
-                    control={control}
-                    name="languageData.0.level"
-                    render={({ field }) => {
-                      return (
-                        <Select
-                          onValueChange={(value) => field.onChange(value)}
-                          defaultValue={field.value}
-                        >
-                          <SelectTrigger>
-                            {/* <Button>Select Level</Button> */}
-                            <p>Select Level</p>
-                          </SelectTrigger>
-
-                          <SelectContent>
-                            {LANGUAGE_LEVEL.map((level) => (
-                              <SelectItem key={level} value={level}>
-                                {level}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      );
-                    }}
-                  />
-                </div>
-              )}
-
-              {fields.map((data, index) => (
-                <div key={data.id}>
-                  <div className="border p-2 rounded-md flex flex-col gap-2">
+              {fields.length === 0 ? (
+                <>
+                  <div className="border p-2 rounded-md">
                     <p>Languages</p>
                     <Input
                       placeholder="Language Name"
-                      {...formMethods.register(`languageData.${index}.name`)}
+                      {...formMethods.register(`languageData.${0}.name`)}
                     />
-                    <Controller
-                      control={control}
-                      name={`languageData.${index}.level`}
-                      render={({ field }) => {
-                        return (
-                          <Select
-                            onValueChange={(value) => field.onChange(value)}
-                            defaultValue={field.value}
-                          >
-                            <SelectTrigger>
-                              {/* <Button>Select Level</Button> */}
-                              <p>Select Level</p>
-                            </SelectTrigger>
-
-                            <SelectContent>
-                              {LANGUAGE_LEVEL.map((level) => (
-                                <SelectItem key={level} value={level}>
-                                  {level}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        );
-                      }}
+                    <Input
+                      placeholder="Language Level"
+                      {...formMethods.register(`languageData.${0}.level`)}
                     />
-                    <Button
-                      className="w-20"
-                      variant={"destructive"}
-                      onClick={() => remove(index)}
-                    >
-                      Remove
-                    </Button>
                   </div>
-                </div>
-              ))}
+                </>
+              ) : (
+                <>
+                  {fields.map((data, index) => {
+                    console.log("first", index);
+                    return (
+                      <div key={data.id}>
+                        <div className="border p-2 rounded-md flex flex-col gap-2">
+                          <p>Languages</p>
+                          <Input
+                            placeholder="Language Name"
+                            {...formMethods.register(
+                              `languageData.${index}.name`
+                            )}
+                          />
+                          <Input
+                            placeholder="Language Level"
+                            {...formMethods.register(
+                              `languageData.${index}.level`
+                            )}
+                          />
+                          <Button
+                            className="w-20"
+                            variant={"destructive"}
+                            onClick={() => remove(index)}
+                          >
+                            Remove
+                          </Button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+
+              {/* ADD+ another language */}
               <Button
                 className="w-40"
-                onClick={() => append({ name: "", level: "advanced" })}
+                onClick={() => append({ name: "", level: "" })} //will add a new field array (In which we already have one element set When there weren't any elements in the fields)
               >
                 Add language +
               </Button>
@@ -246,39 +178,18 @@ function ThirdStep() {
                     placeholder="Programming Language Name"
                     {...formMethods.register("programmingLanguagesData.0.name")}
                   />
-
-                  <Controller
-                    control={control}
-                    name="programmingLanguagesData.0.experience"
-                    render={({ field }) => {
-                      return (
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          value={field.value}
-                        >
-                          <SelectTrigger>
-                            {/* <Button>Select Level</Button> */}
-                            <p>Select Level</p>
-                          </SelectTrigger>
-
-                          <SelectContent>
-                            {EXPERIENCE.map((level) => (
-                              <SelectItem key={level} value={level}>
-                                {level}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      );
-                    }}
+                  <Input
+                    placeholder="Experience in Years"
+                    {...formMethods.register(
+                      "programmingLanguagesData.0.experience"
+                    )}
                   />
                 </div>
               ) : (
                 programmingLanguagesFields.map((data, index) => {
                   return (
                     <div
-                      key={index}
+                      key={data.id}
                       className="border p-2 rounded-md flex flex-col gap-2"
                     >
                       <p>Programming Languages</p>
@@ -288,33 +199,13 @@ function ThirdStep() {
                           `programmingLanguagesData.${index}.name`
                         )}
                       />
-
-                      <Controller
-                        control={control}
-                        name={`programmingLanguagesData.${index}.experience`}
-                        render={({ field }) => {
-                          return (
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              value={field.value}
-                            >
-                              <SelectTrigger>
-                                {/* <Button>Select Level</Button> */}
-                                <p>Select Level</p>
-                              </SelectTrigger>
-
-                              <SelectContent>
-                                {EXPERIENCE.map((level) => (
-                                  <SelectItem key={level} value={level}>
-                                    {level}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          );
-                        }}
+                      <Input
+                        placeholder="Experience in Years"
+                        {...formMethods.register(
+                          `programmingLanguagesData.${index}.experience`
+                        )}
                       />
+
                       <Button
                         className="w-20"
                         variant={"destructive"}
@@ -331,7 +222,7 @@ function ThirdStep() {
                 onClick={() =>
                   programmingLanguagesAppend({
                     name: "",
-                    experience: "advanced",
+                    experience: "",
                   })
                 }
               >

@@ -37,7 +37,6 @@ function FirstStep() {
       name: "",
       username: "",
       email: "",
-      age: 0,
     },
   });
 

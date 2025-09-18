@@ -1,15 +1,5 @@
 import * as z from "zod";
 
-const experienceSchema = z.discriminatedUnion("experienceData", [
-  z.object({
-    experience: z.literal(true),
-    name: z.string().min(2, "Experience name should be at least 2 characters"),
-  }),
-  // z.object({
-  //     experience:z.literal(false),
-  // })
-]);
-
 export const multistepFormSchema = z.object({
   // first step
   name: z.string().min(2, "Name should be at least 2 characters"),
@@ -27,63 +17,85 @@ export const multistepFormSchema = z.object({
     .min(6, "Confirm Password should be at least 6 characters"),
 });
 
+const languagesUnionSchema = z.discriminatedUnion("languages", [
+  z.object({
+    languages: z.literal(true), //if has is checked and has true value then: otherLanguages will be required
+    languageData: z.array(
+      z.object({
+        name: z.string().min(2),
+        level: z.string().min(1),
+      })
+    ), // when literal is true this field is required / else is optional
+  }),
+  z.object({
+    languages: z.literal(false),
+    languageData: z
+      .array(
+        z.object({ name: z.string().optional(), level: z.string().optional() })
+      )
+      .optional(),
+  }),
+]);
+const programmingLanguagesUnionSchema = z.discriminatedUnion(
+  "programmingLanguages",
+  [
+    z.object({
+      programmingLanguages: z.literal(true), //if has is checked and has true value then: otherLanguages will be required
+      programmingLanguagesData: z.array(
+        z.object({
+          name: z.string().min(2),
+          experience: z.string().min(1),
+        })
+      ), // when literal is true this field is required / else is optional
+    }),
+    z.object({
+      programmingLanguages: z.literal(false),
+      programmingLanguagesData: z
+        .array(
+          z.object({
+            name: z.string().optional(),
+            experience: z.string().optional(),
+          })
+        )
+        .optional(),
+    }),
+  ]
+);
+
 export const thirdStepSchema = z
   .object({
     //third step
-    languages: z.boolean().default(false),
-    programmingLanguages: z.boolean().default(false),
+    languages: z.boolean(),
+    programmingLanguages: z.boolean(),
+  })
+  .and(languagesUnionSchema)
+  .and(programmingLanguagesUnionSchema);
 
-    //if languages is true
-    languageData: z
+//
+const experienceSchema = z.discriminatedUnion("experience", [
+  z.object({
+    experience: z.literal(true),
+    orgName: z.array(
+      z.object({ orgName: z.string().min(2), orgExperience: z.string().min(1) })
+    ),
+  }),
+  z.object({
+    experience: z.literal(false),
+    orgName: z
       .array(
         z.object({
-          name: z.string().min(2),
-          level: z.enum(["beginner", "intermediate", "advanced"]),
-        })
-      )
-      .optional(), // present only if languages=true
-
-    //   if programmingLanguages is true
-    programmingLanguagesData: z
-      .array(
-        z.object({
-          name: z.string().min(2),
-          experience: z.string().min(0).max(10),
+          orgName: z.string().min(2),
+          orgExperience: z.string().min(1),
         })
       )
       .optional(),
-  })
-  .superRefine((data, ctx) => {
-    // If languages = true, require languageData
-    if (
-      data.languages &&
-      (!data.languageData || data.languageData.length === 0)
-    ) {
-      ctx.addIssue({
-        path: ["languageData"],
-        code: "custom",
-        message: "Please provide at least one language",
-      });
-    }
-
-    // If programmingLanguages = true, require programmingLanguagesData
-    if (
-      data.programmingLanguages &&
-      (!data.programmingLanguagesData ||
-        data.programmingLanguagesData.length === 0)
-    ) {
-      ctx.addIssue({
-        path: ["programmingLanguagesData"],
-        code: "custom",
-        message: "Please provide at least one programming language",
-      });
-    }
-  });
+  }),
+]);
 
 export const fourthStepSchema = z
   .object({
     // fourth step
-    desiredSalary: z.union([z.number()]),
-    experience: z.boolean().default(false),
+    desiredSalary: z.string().min(1, "Salary must be a positive number"),
+    experience: z.boolean(),
   })
   .and(experienceSchema);
