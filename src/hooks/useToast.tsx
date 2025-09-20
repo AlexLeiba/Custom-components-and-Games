@@ -11,7 +11,7 @@ export type ToastTriggerProps = {
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 };
 
-const toastContainerPositions = cva("fixed flex  gap-2 p-4", {
+const toastContainerPositions = cva("fixed flex  gap-2 p-4 z-50", {
   variants: {
     position: {
       "top-left": "top-2 left-2 flex-col ",

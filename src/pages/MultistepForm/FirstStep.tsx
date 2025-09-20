@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { multistepFormSchema } from "../../consts/schemas";
 import { Input } from "../../components/ui/input";
 import type z from "zod";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
+import { useStore } from "../../store/store";
 
 // create a layoput which will show on which step you are
 // and will be used across all steps
@@ -23,6 +24,10 @@ import { Button } from "../../components/ui/button";
 //on submit show a success message (with your toast) or errors)
 
 function FirstStep() {
+  const {
+    addFormData,
+    formData: { firstStep },
+  } = useStore();
   const router = useNavigate();
   const formMethods = useForm({
     resolver: zodResolver(
@@ -34,9 +39,10 @@ function FirstStep() {
       })
     ),
     defaultValues: {
-      name: "",
-      username: "",
-      email: "",
+      name: firstStep.name || "",
+      username: firstStep.username || "",
+      email: firstStep.email || "",
+      age: firstStep.age || 0,
     },
   });
 
@@ -50,13 +56,16 @@ function FirstStep() {
   function onSubmit(
     data: Pick<FormDataType, "name" | "username" | "email" | "age">
   ) {
-    console.log("data", data);
+    addFormData({ firstStep: data });
     router("/multistep-form-2");
     //Pick<FormDataType);
   }
 
   return (
     <div>
+      <Link to="/" className="text-blue-500 underline">
+        Back to Home
+      </Link>
       <Layout step={1}>
         <h1 className="text-2xl font-bold">First Step</h1>
 

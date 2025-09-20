@@ -17,6 +17,8 @@ export const multistepFormSchema = z.object({
     .min(6, "Confirm Password should be at least 6 characters"),
 });
 
+export type FirstAndSecondStep = z.infer<typeof multistepFormSchema>;
+
 const languagesUnionSchema = z.discriminatedUnion("languages", [
   z.object({
     languages: z.literal(true), //if has is checked and has true value then: otherLanguages will be required
@@ -36,6 +38,7 @@ const languagesUnionSchema = z.discriminatedUnion("languages", [
       .optional(),
   }),
 ]);
+
 const programmingLanguagesUnionSchema = z.discriminatedUnion(
   "programmingLanguages",
   [
@@ -71,6 +74,8 @@ export const thirdStepSchema = z
   .and(languagesUnionSchema)
   .and(programmingLanguagesUnionSchema);
 
+export type ThirdStepType = z.infer<typeof thirdStepSchema>;
+
 //
 const experienceSchema = z.discriminatedUnion("experience", [
   z.object({
@@ -99,3 +104,5 @@ export const fourthStepSchema = z
     experience: z.boolean(),
   })
   .and(experienceSchema);
+
+export type FourthStepType = z.infer<typeof fourthStepSchema>;

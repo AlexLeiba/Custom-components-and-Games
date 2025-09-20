@@ -38,6 +38,10 @@ function HomePage() {
       path: "/multistep-form-1",
       title: "Multistep Form - Step 1",
     },
+    {
+      path: "/timer",
+      title: "Timer",
+    },
   ];
 
   return (

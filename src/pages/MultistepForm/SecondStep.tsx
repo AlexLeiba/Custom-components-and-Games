@@ -6,8 +6,13 @@ import { useNavigate } from "react-router-dom";
 import type z from "zod";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
+import { useStore } from "../../store/store";
 
 function SecondStep() {
+  const {
+    addFormData,
+    formData: { secondStep },
+  } = useStore();
   const router = useNavigate();
   const formMethods = useForm({
     resolver: zodResolver(
@@ -17,8 +22,8 @@ function SecondStep() {
       })
     ),
     defaultValues: {
-      password: "",
-      confirmPassword: "",
+      password: secondStep.password || "",
+      confirmPassword: secondStep.confirmPassword || "",
     },
   });
 
@@ -35,7 +40,7 @@ function SecondStep() {
       setError("confirmPassword", { message: "Passwords do not match" });
       return;
     }
-    console.log("data", data);
+    addFormData({ secondStep: data });
     router("/multistep-form-3");
     //Pick<FormDataType);
   }

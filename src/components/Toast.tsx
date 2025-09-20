@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "../../lib/utility";
 import { AlertTriangle, Check, Info, X } from "lucide-react";
 
-const toastVariants = cva(" py-2 px-10 rounded-md relative w-[300px]", {
+const toastVariants = cva(" py-2 px-10 rounded-md relative w-[300px] z-50", {
   variants: {
     position: {
       "top-left": " top-toast-animation",

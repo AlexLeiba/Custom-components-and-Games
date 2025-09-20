@@ -7,14 +7,28 @@ import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Checkbox } from "../../components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
+import { useStore } from "../../store/store";
+import { useContext, useState } from "react";
+import { ToastContext } from "../../context/ToastProvider";
+import { SubmittedData } from "./SubmittedData";
+import { X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-function ThirdStep() {
+function FourthStep() {
+  const navigate = useNavigate();
+  const [submittedData, setSubmittedData] = useState(false);
+  const { triggerToast } = useContext(ToastContext);
+  const {
+    addFormData,
+    deleteFormData,
+    formData: { fourthStep },
+  } = useStore();
   const formMethods = useForm({
     resolver: zodResolver(fourthStepSchema),
     defaultValues: {
-      desiredSalary: "0",
-      experience: false,
-      orgName: [],
+      desiredSalary: fourthStep?.desiredSalary || "",
+      experience: fourthStep?.experience || false,
+      orgName: fourthStep?.orgName || [],
     },
     shouldUnregister: true, // <-- important
   });
@@ -36,9 +50,20 @@ function ThirdStep() {
   const isExperienceChecked = useWatch({ control, name: "experience" });
 
   function onSubmit(data: FormDataType) {
-    console.log("data", data);
+    addFormData({ fourthStep: data });
+
+    triggerToast({
+      message: "Form submitted successfully",
+      type: "success",
+    });
+    setSubmittedData(true);
   }
 
+  function closeAndDeleteSubmittedData() {
+    setSubmittedData(false);
+    deleteFormData();
+    navigate("/multistep-form-1");
+  }
   return (
     <div>
       {" "}
@@ -51,6 +76,15 @@ function ThirdStep() {
 
         {errors && errors?.desiredSalary && (
           <p className="text-red-500">Desired salary field is required </p>
+        )}
+        {submittedData && (
+          <>
+            <X
+              onClick={closeAndDeleteSubmittedData}
+              className="cursor-pointer"
+            />
+            <SubmittedData />
+          </>
         )}
 
         <form
@@ -182,4 +216,4 @@ function ThirdStep() {
   );
 }
 
-export default ThirdStep;
+export default FourthStep;

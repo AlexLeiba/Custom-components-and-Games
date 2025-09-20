@@ -7,14 +7,22 @@ import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Checkbox } from "../../components/ui/checkbox";
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../../store/store";
 
 function ThirdStep() {
+  const {
+    addFormData,
+    formData: { thirdStep },
+  } = useStore();
+
   const router = useNavigate();
   const formMethods = useForm({
     resolver: zodResolver(thirdStepSchema),
     defaultValues: {
-      languages: false,
-      programmingLanguages: false,
+      languages: thirdStep.languages,
+      programmingLanguages: thirdStep.programmingLanguages,
+      languageData: thirdStep.languageData,
+      programmingLanguagesData: thirdStep.programmingLanguagesData,
     },
     shouldUnregister: true, // <-- important
   });
@@ -50,7 +58,7 @@ function ThirdStep() {
   });
 
   function onSubmit(data: FormDataType) {
-    console.log("data", data);
+    addFormData({ thirdStep: data });
     router("/multistep-form-4");
   }
 
