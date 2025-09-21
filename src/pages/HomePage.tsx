@@ -42,6 +42,10 @@ function HomePage() {
       path: "/timer",
       title: "Timer",
     },
+    {
+      path: "/select-colors",
+      title: "Select Colors Grid",
+    },
   ];
 
   return (

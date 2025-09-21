@@ -15,6 +15,7 @@ import SecondStep from "./pages/MultistepForm/SecondStep";
 import ThirdStep from "./pages/MultistepForm/ThirdStep";
 import ForthStep from "./pages/MultistepForm/ForthStep";
 import TimerPage from "./pages/TimerPage";
+import SelectColorsGridPage from "./pages/SelectColorsGridPage";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/pagination" element={<PaginationPage />} />
           <Route path="/custom-hooks" element={<CustomHooksPage />} />
           <Route path="/timer" element={<TimerPage />} />
+          <Route path="/select-colors" element={<SelectColorsGridPage />} />
 
           {/* MULTISTEP FORM */}
           <Route path="/multistep-form-1" element={<FirstStep />} />
