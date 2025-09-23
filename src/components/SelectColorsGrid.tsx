@@ -96,12 +96,17 @@ export function SelectColorsGrid() {
 
   return (
     <div className="flex flex-col justify-center items-center w-full gap-4">
+      <strong>How it works?</strong>
+      <p>
+        Select all cells and they will deselect in order you have selected them
+      </p>
+
       <div className="flex gap-4">
         <input
           onChange={(e) => setRows(e.target.value as unknown as number)}
           className="border p-2"
           type="number"
-          placeholder="change rows.."
+          placeholder="change nr. of rows.."
         />
         <Button onClick={handleApplyRows}>Apply new rows</Button>
       </div>

@@ -16,6 +16,7 @@ import ThirdStep from "./pages/MultistepForm/ThirdStep";
 import ForthStep from "./pages/MultistepForm/ForthStep";
 import TimerPage from "./pages/TimerPage";
 import SelectColorsGridPage from "./pages/SelectColorsGridPage";
+import MinesweeperPage from "./pages/MinesweeperPage";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -41,6 +42,7 @@ function App() {
           <Route path="/custom-hooks" element={<CustomHooksPage />} />
           <Route path="/timer" element={<TimerPage />} />
           <Route path="/select-colors" element={<SelectColorsGridPage />} />
+          <Route path="/minesweeper-game" element={<MinesweeperPage />} />
 
           {/* MULTISTEP FORM */}
           <Route path="/multistep-form-1" element={<FirstStep />} />

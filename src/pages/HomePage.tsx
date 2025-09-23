@@ -46,6 +46,10 @@ function HomePage() {
       path: "/select-colors",
       title: "Select Colors Grid",
     },
+    {
+      path: "/minesweeper-game",
+      title: "Minesweeper Game",
+    },
   ];
 
   return (
