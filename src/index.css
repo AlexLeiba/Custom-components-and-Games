@@ -166,3 +166,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* .minesweeperFace::after {
+  content: "🙂";
+}
+
+.minesweeperFace:active::after {
+  content: "😨";
+}
+
+.minesweeperFace.win::after {
+  content: "😎";
+}
+
+.minesweeperFace.lose::after {
+  content: "😵";
+} */
