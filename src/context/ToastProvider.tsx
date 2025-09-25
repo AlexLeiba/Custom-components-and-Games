@@ -15,7 +15,7 @@ export function ToastProviderComponent({
 }: {
   children: React.ReactNode;
 }) {
-  const { Toast, triggerToast } = useToast({ position: "top-left" });
+  const { Toast, triggerToast } = useToast({ position: "center" });
 
   return (
     <ToastContext.Provider value={{ triggerToast, Toast }}>

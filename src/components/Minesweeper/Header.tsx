@@ -4,42 +4,50 @@ import { useMinesweeperStore } from "../../store/minesweeperStore";
 import { useEffect, useState } from "react";
 
 export function Header() {
-  const { cellData, hasAMineExploded, timer, handleTimer } =
-    useMinesweeperStore();
+  const {
+    cellData,
+    hasAMineExploded,
+    timer,
+    flaggsUsed,
+    gameOver,
+    clicks,
+    flaggedMines,
+    handleTimer,
+    handleAddStatsData,
+  } = useMinesweeperStore();
 
   const [time, setTime] = useState(0);
 
-  const flaggsUsed = [];
-  cellData.forEach((row) => {
-    row.forEach((cell) => {
-      if (cell.flagged) {
-        flaggsUsed.push(cell.flagged);
-      }
-    });
-  });
-
   useEffect(() => {
-    if (hasAMineExploded) {
+    if (hasAMineExploded || gameOver) {
       handleTimer(time);
+
+      handleAddStatsData({
+        time,
+        clicks,
+        type: hasAMineExploded ? "lost" : "won",
+        name: "",
+        mines: flaggedMines,
+      });
     }
     const intervalId = setInterval(() => {
-      if (!hasAMineExploded) {
+      if (!hasAMineExploded || !gameOver) {
         setTime((prev) => prev + 1);
       }
     }, 1000);
 
-    hasAMineExploded && clearInterval(intervalId);
+    (hasAMineExploded || gameOver) && clearInterval(intervalId);
 
     return () => {
       setTime(0);
       clearInterval(intervalId);
     };
-  }, [cellData, hasAMineExploded]);
+  }, [cellData, hasAMineExploded, gameOver]);
 
   return (
     <div className="p-2 flex gap-4 justify-between  border-t-gray-400 border-l-gray-400 border-r-white border-b-white border-3">
       {/* Nr of Flags and Mines */}
-      <NumberDisplay nrData={flaggsUsed.length} nrOfMines={9} type="flag" />
+      <NumberDisplay nrData={flaggsUsed} nrOfMines={9} type="flag" />
       <Face />
       {/* Timer */}
       <NumberDisplay nrData={time || timer} type="timer" />

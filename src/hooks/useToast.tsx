@@ -8,12 +8,18 @@ export type ToastTriggerProps = {
   message: string;
   duration?: number;
   animation?: "pop" | "fade" | "slide" | "zoom";
-  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  position?:
+    | "top-left"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-right"
+    | "center";
 };
 
 const toastContainerPositions = cva("fixed flex  gap-2 p-4 z-50", {
   variants: {
     position: {
+      center: "top-2 left-1/2 -translate-x-1/2 ",
       "top-left": "top-2 left-2 flex-col ",
       "top-right": "top-2 right-2 flex-col",
       "bottom-left": "bottom-2 left-2 flex-col-reverse",

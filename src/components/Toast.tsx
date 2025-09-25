@@ -10,6 +10,7 @@ const toastVariants = cva(" py-2 px-10 rounded-md relative w-[300px] z-50", {
       "top-right": " top-toast-animation",
       "bottom-left": " bottom-toast-animation",
       "bottom-right": "bottom-toast-animation",
+      center: "bottom-toast-animation",
     },
     type: {
       success: "bg-green-300",
@@ -34,7 +35,12 @@ export function Toast({
 
   onClose,
 }: ToastTriggerProps & {
-  position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  position:
+    | "top-left"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-right"
+    | "center";
 } & {
   onClose: () => void;
 }) {
