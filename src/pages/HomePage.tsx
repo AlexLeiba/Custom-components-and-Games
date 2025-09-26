@@ -50,6 +50,10 @@ function HomePage() {
       path: "/minesweeper-game",
       title: "Minesweeper Game",
     },
+    {
+      path: "/hangman-game",
+      title: "Hangman Game",
+    },
   ];
 
   return (
