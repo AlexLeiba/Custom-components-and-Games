@@ -14,12 +14,15 @@ export function VirtualKeyboard() {
   } = useHangmanStore();
 
   function handleSelectaLetter(letter: string) {
+    const clonedKeyboard = structuredClone(alphabetKeyboardData);
+    const index = clonedKeyboard.findIndex((item) => item.keyName === letter);
+
     if (guessWord.includes(letter.toLowerCase())) {
       handleGuessedWords(letter.toLowerCase());
+      clonedKeyboard[index].type = "guessed";
+      handleAlphabetKeyboardData(clonedKeyboard);
     } else {
       handleFailed(1);
-      const clonedKeyboard = structuredClone(alphabetKeyboardData);
-      const index = clonedKeyboard.findIndex((item) => item.keyName === letter);
       clonedKeyboard[index].type = "failed";
       handleAlphabetKeyboardData(clonedKeyboard);
     }
@@ -33,7 +36,9 @@ export function VirtualKeyboard() {
             disabled={!guessWordHint || failed === 6 || gameWon}
             onClick={() => handleSelectaLetter(letter.keyName)}
             className={cn(
-              letter.type === "failed" ? "bg-red-400" : "bg-gray-300",
+              letter.type === "failed" && "bg-red-400",
+              letter.type === "guessed" && "bg-green-400",
+              letter.type === "empty" && "bg-gray-200",
               "p-4 border hover:opacity-80 cursor-pointer"
             )}
             key={letter.keyName}

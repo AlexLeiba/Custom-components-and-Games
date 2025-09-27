@@ -5,7 +5,16 @@ import { Heart } from "lucide-react";
 import { ToastContext } from "../../context/ToastProvider";
 import { cn } from "../../lib/utils";
 
-const categories = ["Sport", "Movies", "Animals", "Countries", "Celebrities"];
+const categories = [
+  "Sport",
+  "Movies",
+  "Animals",
+  "Cartoons2000s",
+  "Games",
+  "Cars",
+  "Countries",
+  "Celebrities",
+];
 
 export function Header() {
   const { triggerToast } = useContext(ToastContext);
