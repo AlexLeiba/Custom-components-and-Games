@@ -1,4 +1,3 @@
-import React from "react";
 import hang1 from "../../assets/hangman/hangman-0.svg";
 import hang2 from "../../assets/hangman/hangman-1.svg";
 import hang3 from "../../assets/hangman/hangman-2.svg";
@@ -25,7 +24,11 @@ export function ImageSection() {
   const { failed } = useHangmanStore();
   return (
     <div className="flex flex-1">
-      <img className="w-full h-full" src={FAILED_IMAGES[failed]} alt="" />
+      <img
+        className="w-full md:h-full h-[100px] object-contain"
+        src={FAILED_IMAGES[failed]}
+        alt=""
+      />
     </div>
   );
 }

@@ -44,7 +44,7 @@ const CATEGORIES_DATA: Record<
   }
 > = {
   sport: {
-    title: "Here is the guess word hint sport",
+    title: "Sport",
     words: [
       {
         word: "cricket",
@@ -220,7 +220,7 @@ const CATEGORIES_DATA: Record<
     ],
   },
   movies: {
-    title: "Here is the guess word hint movies",
+    title: "Movies",
     words: [
       { word: "avengers", hint: "Earth’s mightiest heroes joined forces." },
       { word: "spiderman", hint: "Hero who swings across skyscrapers." },
@@ -247,26 +247,197 @@ const CATEGORIES_DATA: Record<
   animals: {
     title: "Here is the guess word hint animals",
     words: [
-      { word: "lion", hint: "Known as the king of the jungle." },
-      { word: "elephant", hint: "The giant with unmatched memory." },
-      { word: "tiger", hint: "A striped predator of the wild." },
-      { word: "giraffe", hint: "The tallest on land." },
-      { word: "panda", hint: "Black and white bamboo lover." },
-      { word: "kangaroo", hint: "Hops with its young in a pouch." },
-      { word: "zebra", hint: "Horse-like with black and white stripes." },
-      { word: "penguin", hint: "Bird that thrives in icy places." },
-      { word: "dolphin", hint: "Smart swimmer with playful nature." },
-      { word: "shark", hint: "A predator of the ocean depths." },
-      { word: "owl", hint: "The bird that rules the night." },
-      { word: "peacock", hint: "Known for its colorful feathers." },
-      { word: "wolf", hint: "Hunts in packs under the moon." },
-      { word: "bear", hint: "Loves honey and long naps." },
-      { word: "snake", hint: "Moves without legs." },
-      { word: "horse", hint: "Companion in travel and sport." },
-      { word: "rabbit", hint: "Fast breeder, fast runner." },
-      { word: "monkey", hint: "Playful tree climber." },
-      { word: "parrot", hint: "Bird that mimics human voices." },
-      { word: "whale", hint: "The gentle giant of the sea." },
+      { word: "Lion", hint: "Known as the king of the jungle." },
+      { word: "Elephant", hint: "The largest land mammal." },
+      {
+        word: "Kangaroo",
+        hint: "Native to Australia and known for its jumping.",
+      },
+      {
+        word: "Penguin",
+        hint: "A bird that cannot fly but is an excellent swimmer.",
+      },
+      { word: "Giraffe", hint: "The tallest land animal." },
+      { word: "Zebra", hint: "Known for its black and white stripes." },
+      { word: "Cheetah", hint: "The fastest land animal." },
+      {
+        word: "Panda",
+        hint: "A bear native to China, known for eating bamboo.",
+      },
+      {
+        word: "Koala",
+        hint: "An Australian marsupial that sleeps most of the day.",
+      },
+      {
+        word: "Sloth",
+        hint: "A slow-moving mammal that spends most of its life hanging upside down.",
+      },
+      {
+        word: "Dolphin",
+        hint: "A highly intelligent marine mammal known for its playful behavior.",
+      },
+      { word: "Whale", hint: "The largest animal to have ever lived." },
+      { word: "Shark", hint: "A predatory fish known for its sharp teeth." },
+      { word: "Eagle", hint: "A bird of prey with excellent vision." },
+      { word: "Owl", hint: "A nocturnal bird known for its hooting sound." },
+      { word: "Bat", hint: "The only mammal capable of sustained flight." },
+      {
+        word: "Rabbit",
+        hint: "A small mammal known for its long ears and quick movements.",
+      },
+      { word: "Fox", hint: "A cunning mammal often depicted in folklore." },
+      {
+        word: "Wolf",
+        hint: "A carnivorous mammal that lives and hunts in packs.",
+      },
+      {
+        word: "Bear",
+        hint: "A large mammal known for its strength and hibernation habits.",
+      },
+      { word: "Tiger", hint: "A large cat with orange fur and black stripes." },
+      { word: "Leopard", hint: "A big cat known for its spotted coat." },
+      {
+        word: "Jaguar",
+        hint: "A big cat native to the Americas, known for its powerful build.",
+      },
+      { word: "Crocodile", hint: "A large reptile found in rivers and lakes." },
+      {
+        word: "Alligator",
+        hint: "A reptile similar to a crocodile but with a broader snout.",
+      },
+      { word: "Snake", hint: "A legless reptile that slithers on the ground." },
+      { word: "Lizard", hint: "A reptile with four legs and a long tail." },
+      { word: "Turtle", hint: "A reptile known for its hard shell." },
+      { word: "Frog", hint: "An amphibian known for its jumping abilities." },
+      { word: "Toad", hint: "An amphibian with dry, bumpy skin." },
+      { word: "Salamander", hint: "An amphibian that resembles a lizard." },
+      {
+        word: "Newt",
+        hint: "A small amphibian that lives both in water and on land.",
+      },
+      { word: "Octopus", hint: "A marine animal known for its eight arms." },
+      {
+        word: "Squid",
+        hint: "A marine animal with a long body and tentacles.",
+      },
+      { word: "Jellyfish", hint: "A gelatinous marine animal with tentacles." },
+      { word: "Starfish", hint: "A marine animal with five arms." },
+      {
+        word: "Sea Horse",
+        hint: "A small marine fish with a horse-like head.",
+      },
+      {
+        word: "Crab",
+        hint: "A crustacean with a broad, flat body and pincers.",
+      },
+      {
+        word: "Lobster",
+        hint: "A large marine crustacean with long antennae.",
+      },
+      { word: "Shrimp", hint: "A small marine crustacean with a curved body." },
+      { word: "Clam", hint: "A marine mollusk with a hinged shell." },
+      {
+        word: "Mussel",
+        hint: "A bivalve mollusk found in both freshwater and saltwater.",
+      },
+      { word: "Oyster", hint: "A bivalve mollusk known for producing pearls." },
+      { word: "Snail", hint: "A mollusk with a coiled shell." },
+      { word: "Slug", hint: "A mollusk without a shell." },
+      { word: "Ant", hint: "A small insect known for living in colonies." },
+      { word: "Bee", hint: "An insect known for producing honey." },
+      { word: "Butterfly", hint: "An insect with large, colorful wings." },
+      {
+        word: "Moth",
+        hint: "An insect similar to a butterfly but typically nocturnal.",
+      },
+      {
+        word: "Dragonfly",
+        hint: "An insect with long, slender wings and a long body.",
+      },
+      { word: "Grasshopper", hint: "An insect known for its jumping ability." },
+      { word: "Cricket", hint: "An insect known for its chirping sound." },
+      { word: "Cockroach", hint: "A resilient insect often found in homes." },
+      { word: "Fly", hint: "A small insect with two wings." },
+      {
+        word: "Mosquito",
+        hint: "An insect known for biting and sucking blood.",
+      },
+      {
+        word: "Ladybug",
+        hint: "A small, round insect with red and black spots.",
+      },
+      { word: "Firefly", hint: "An insect that produces light." },
+      { word: "Termite", hint: "An insect known for eating wood." },
+      { word: "Spider", hint: "An arachnid with eight legs." },
+      {
+        word: "Scorpion",
+        hint: "An arachnid with pincers and a venomous sting.",
+      },
+      { word: "Tick", hint: "A small arachnid that feeds on blood." },
+      { word: "Centipede", hint: "An arthropod with many legs." },
+      {
+        word: "Millipede",
+        hint: "An arthropod with two pairs of legs per body segment.",
+      },
+      { word: "Earthworm", hint: "A segmented worm found in soil." },
+      { word: "Leech", hint: "A parasitic or carnivorous worm." },
+      { word: "Coral", hint: "Marine invertebrates that build reefs." },
+      { word: "Sea Urchin", hint: "A spiny, globular marine animal." },
+      { word: "Sea Cucumber", hint: "A marine animal with a leathery skin." },
+      { word: "Spiny Lobster", hint: "A lobster without large claws." },
+      { word: "Manta Ray", hint: "A large, flat-bodied fish." },
+      {
+        word: "Stingray",
+        hint: "A flat-bodied fish known for its barbed tail.",
+      },
+      { word: "Swordfish", hint: "A large fish with a long, pointed bill." },
+      { word: "Marlin", hint: "A large fish known for its spear-like snout." },
+      { word: "Tuna", hint: "A large, fast-swimming fish." },
+      { word: "Salmon", hint: "A fish known for migrating upstream to spawn." },
+      { word: "Trout", hint: "A freshwater fish related to salmon." },
+      { word: "Bass", hint: "A common name for various species of fish." },
+      { word: "Perch", hint: "A freshwater fish with spiny fins." },
+      { word: "Pike", hint: "A predatory fish with a long body." },
+      {
+        word: "Catfish",
+        hint: "A fish with whisker-like barbels around its mouth.",
+      },
+      { word: "Goldfish", hint: "A small, ornamental freshwater fish." },
+      { word: "Betta", hint: "A small, colorful freshwater fish." },
+      { word: "Guppy", hint: "A small, live-bearing freshwater fish." },
+      {
+        word: "Neon Tetra",
+        hint: "A small, brightly colored freshwater fish.",
+      },
+      { word: "Angelfish", hint: "A freshwater fish with triangular fins." },
+      { word: "Discus", hint: "A round, colorful freshwater fish." },
+      { word: "Cichlid", hint: "A diverse family of freshwater fish." },
+      { word: "Barb", hint: "A small, schooling freshwater fish." },
+      { word: "Loach", hint: "A bottom-dwelling freshwater fish." },
+      { word: "Rainbow Fish", hint: "A small, colorful freshwater fish." },
+      { word: "Killifish", hint: "A small, live-bearing freshwater fish." },
+      { word: "Danio", hint: "A small, active freshwater fish." },
+      { word: "Gudgeon", hint: "A small, bottom-dwelling freshwater fish." },
+      { word: "Minnow", hint: "A small, schooling freshwater fish." },
+      { word: "Shiner", hint: "A small, schooling freshwater fish." },
+      { word: "Suckerfish", hint: "A fish known for its sucking mouth." },
+      { word: "Sturgeon", hint: "A large, ancient fish known for its eggs." },
+      {
+        word: "Piranha",
+        hint: "A carnivorous fish known for its sharp teeth.",
+      },
+      {
+        word: "Arowana",
+        hint: "A large, predatory fish known for its metallic sheen.",
+      },
+      {
+        word: "Arapaima",
+        hint: "A large, freshwater fish native to the Amazon.",
+      },
+      {
+        word: "Bichir",
+        hint: "An ancient, predatory fish with lobed pectoral fins.",
+      },
     ],
   },
   celebrities: {
@@ -322,6 +493,10 @@ const CATEGORIES_DATA: Record<
 };
 
 type StoreType = {
+  gameWon: boolean;
+  handleGameWon: (data: boolean) => void;
+  //   check if the game is won
+
   selectedLetter: string;
   handleSelectedLetter: (data: string) => void;
   //   check if letter exists in the array of 'guessWord'
@@ -333,6 +508,7 @@ type StoreType = {
   //add show the image associated with it in ImageSection.tsx
 
   guessWord: string[];
+  guessWordHint: string;
   handleGuessWord: (data: string[]) => void;
   //if the letter was guessed?
   //add the letter in an object
@@ -370,15 +546,10 @@ type StoreType = {
   //   5 cat celebrities
 };
 export const useHangmanStore = create<StoreType>((set) => ({
-  categoriesData: {
-    title: "",
-    words: [
-      {
-        word: "",
-        hint: "",
-      },
-    ],
-  },
+  gameWon: false,
+  handleGameWon: (data: boolean) => set({ gameWon: data }),
+
+  categoriesData: CATEGORIES_DATA["sport"],
   selectedCategory: "Sport",
   handleSelectedCategory: (data: string) => {
     {
@@ -388,18 +559,34 @@ export const useHangmanStore = create<StoreType>((set) => ({
           hint: "",
           words: [],
         },
+        failed: 0,
+        selectedLetter: "",
+        guessedWords: {},
+        alphabetKeyboardData: ALPHABET,
+        guessWord: ["_", "_", "_", "_", "_"],
+        guessWordHint: "",
+        gameWon: false,
       });
     }
   },
-  handleNewGame: () =>
-    set({
-      failed: 0,
-      selectedLetter: "",
-      guessWord: ["_", "_", "_", "_", "_"],
-      guessedWords: {},
-      alphabetKeyboardData: ALPHABET,
-    }),
-
+  handleNewGame: () => {
+    //will swap all selected category data randomnly
+    return set((state) => {
+      const randomIndexes =
+        Math.floor(Math.random() * state.categoriesData.words.length) || 0;
+      return {
+        failed: 0,
+        selectedLetter: "",
+        guessedWords: {},
+        alphabetKeyboardData: ALPHABET,
+        guessWord: state.categoriesData.words[randomIndexes].word
+          .toLowerCase()
+          .split(""),
+        guessWordHint: state.categoriesData.words[randomIndexes].hint,
+        gameWon: false,
+      };
+    });
+  },
   failed: 0,
   handleFailed: (data: number) =>
     set((state) => ({ failed: state.failed + data })),
@@ -408,6 +595,7 @@ export const useHangmanStore = create<StoreType>((set) => ({
   handleSelectedLetter: (data: string) => set({ selectedLetter: data }),
 
   guessWord: ["_", "_", "_", "_", "_"],
+  guessWordHint: "",
   handleGuessWord: (data: string[]) => set({ guessWord: data }),
 
   guessedWords: {},
