@@ -5,32 +5,32 @@ export type VirtualKeyboardType = {
 };
 
 const ALPHABET: VirtualKeyboardType[] = [
-  { keyName: "A", type: "empty" },
-  { keyName: "B", type: "empty" },
-  { keyName: "C", type: "empty" },
-  { keyName: "D", type: "empty" },
+  { keyName: "Q", type: "empty" },
+  { keyName: "W", type: "empty" },
   { keyName: "E", type: "empty" },
+  { keyName: "R", type: "empty" },
+  { keyName: "T", type: "empty" },
+  { keyName: "Y", type: "empty" },
+  { keyName: "U", type: "empty" },
+  { keyName: "I", type: "empty" },
+  { keyName: "O", type: "empty" },
+  { keyName: "P", type: "empty" },
+  { keyName: "A", type: "empty" },
+  { keyName: "S", type: "empty" },
+  { keyName: "D", type: "empty" },
   { keyName: "F", type: "empty" },
   { keyName: "G", type: "empty" },
   { keyName: "H", type: "empty" },
-  { keyName: "I", type: "empty" },
   { keyName: "J", type: "empty" },
   { keyName: "K", type: "empty" },
   { keyName: "L", type: "empty" },
-  { keyName: "M", type: "empty" },
-  { keyName: "N", type: "empty" },
-  { keyName: "O", type: "empty" },
-  { keyName: "P", type: "empty" },
-  { keyName: "Q", type: "empty" },
-  { keyName: "R", type: "empty" },
-  { keyName: "S", type: "empty" },
-  { keyName: "T", type: "empty" },
-  { keyName: "U", type: "empty" },
-  { keyName: "V", type: "empty" },
-  { keyName: "W", type: "empty" },
-  { keyName: "X", type: "empty" },
-  { keyName: "Y", type: "empty" },
   { keyName: "Z", type: "empty" },
+  { keyName: "X", type: "empty" },
+  { keyName: "C", type: "empty" },
+  { keyName: "V", type: "empty" },
+  { keyName: "B", type: "empty" },
+  { keyName: "N", type: "empty" },
+  { keyName: "M", type: "empty" },
 ];
 
 const CATEGORIES_DATA: Record<
@@ -44,179 +44,69 @@ const CATEGORIES_DATA: Record<
   }
 > = {
   sport: {
-    title: "Sport",
+    title: "Sports",
     words: [
-      {
-        word: "cricket",
-        hint: "Played with bat and ball, lasting hours or even days.",
-      },
-      { word: "football", hint: "A game defined by goals and a round ball." },
-      {
-        word: "tennis",
-        hint: "Played on clay, grass, or hard courts with rackets.",
-      },
-      {
-        word: "basketball",
-        hint: "The taller you are, the closer to the hoop.",
-      },
-      {
-        word: "rugby",
-        hint: "Physical sport with an oval ball, huge in New Zealand.",
-      },
-      {
-        word: "golf",
-        hint: "A quiet sport where patience wins on green fields.",
-      },
-      { word: "hockey", hint: "Played on ice or grass with sticks." },
-      {
-        word: "boxing",
-        hint: "Sport where two fighters meet inside the ring.",
-      },
-      {
-        word: "wrestling",
-        hint: "A contest of strength, often inside a squared circle.",
-      },
-      { word: "surfing", hint: "Balancing on waves with a board." },
-      { word: "archery", hint: "Involves a bow, arrows, and hitting targets." },
-      { word: "fencing", hint: "Sword duels, but with protective masks." },
-      { word: "badminton", hint: "Played with a shuttlecock that flies fast." },
-      {
-        word: "volleyball",
-        hint: "Teams separated by a net, aiming to hit the floor.",
-      },
-      { word: "swimming", hint: "Competing in lanes of water." },
-      { word: "marathon", hint: "A race covering 42.195 kilometers." },
-      { word: "triathlon", hint: "A test of swimming, cycling, and running." },
-      { word: "cycling", hint: "Famous races include the Tour de France." },
-      { word: "skating", hint: "Gliding on blades across ice." },
-      { word: "skiing", hint: "Sliding down snowy slopes with poles." },
-      { word: "snowboarding", hint: "Like surfing, but on snow." },
-      {
-        word: "karate",
-        hint: "Martial art from Japan emphasizing discipline.",
-      },
-      { word: "judo", hint: "Martial art focused on throws and holds." },
-      { word: "taekwondo", hint: "Korean martial art with powerful kicks." },
-      { word: "baseball", hint: "A bat-and-ball sport popular in the US." },
-      {
-        word: "softball",
-        hint: "Similar to baseball, but on a smaller field.",
-      },
-      { word: "lacrosse", hint: "Played with sticks ending in nets." },
-      { word: "polo", hint: "Played on horseback with mallets." },
-      { word: "rowing", hint: "Athletes race boats powered by oars." },
-      { word: "kayaking", hint: "Paddling through rivers, lakes, or seas." },
-      { word: "canoeing", hint: "Boat sport using a single-bladed paddle." },
-      { word: "sailing", hint: "Harnessing the wind to move boats." },
-      { word: "climbing", hint: "Scaling walls or natural rock faces." },
-      { word: "gymnastics", hint: "Combines flips, strength, and grace." },
-      { word: "cheerleading", hint: "High-energy routines supporting teams." },
-      { word: "parkour", hint: "Sport of moving fluidly across obstacles." },
-      {
-        word: "skateboarding",
-        hint: "Riding ramps and streets on a board with wheels.",
-      },
-      { word: "billiards", hint: "A cue sport played on green felt tables." },
-      { word: "snooker", hint: "A billiards variant requiring precision." },
-      { word: "darts", hint: "Target sport often played in pubs." },
-      { word: "bowling", hint: "Knocking down pins with a heavy ball." },
-      { word: "handball", hint: "Fast-paced game played by throwing a ball." },
-      {
-        word: "waterpolo",
-        hint: "A mix of swimming and ball handling in a pool.",
-      },
-      { word: "ultimate", hint: "Frisbee-based team sport with goals." },
-      { word: "fieldhockey", hint: "Played with sticks, but not on ice." },
-      { word: "tabletennis", hint: "Mini version of tennis on a table." },
-      {
-        word: "squash",
-        hint: "Played inside a court with a small rubber ball.",
-      },
-      { word: "crossfit", hint: "A mix of weightlifting and endurance." },
-      {
-        word: "powerlifting",
-        hint: "Focuses on maximum strength in three lifts.",
-      },
-      {
-        word: "weightlifting",
-        hint: "Olympic sport of lifting barbells overhead.",
-      },
-      { word: "equestrian", hint: "Competitive horse riding." },
-      { word: "motorsport", hint: "Car and motorcycle racing." },
-      { word: "formula1", hint: "Fastest cars on closed circuits." },
-      { word: "motogp", hint: "Premier class of motorcycle racing." },
-      { word: "drag racing", hint: "Two vehicles race in a straight line." },
-      { word: "sumo", hint: "Japanese wrestling with giant competitors." },
-      { word: "kungfu", hint: "Chinese martial art with graceful movements." },
-      { word: "mma", hint: "Mixed martial arts in a cage." },
-      { word: "wushu", hint: "Chinese martial art with fluid forms." },
-      { word: "freediving", hint: "Diving deep without breathing gear." },
-      { word: "scuba", hint: "Exploring underwater with oxygen tanks." },
-      { word: "bobsleigh", hint: "Sliding down icy tracks in teams." },
-      { word: "luge", hint: "Athletes lie on sleds down ice tracks." },
-      { word: "curling", hint: "Sliding stones on ice towards targets." },
-      { word: "kendo", hint: "Japanese fencing with bamboo swords." },
-      { word: "shooting", hint: "Accuracy sport using rifles or pistols." },
-      { word: "biathlon", hint: "Mix of skiing and shooting." },
-      { word: "trampoline", hint: "Sport of flips on elastic surfaces." },
-      { word: "rollerblading", hint: "Moving on wheels strapped to shoes." },
-      { word: "disc golf", hint: "Throwing frisbees into baskets." },
-      {
-        word: "orienteering",
-        hint: "Navigating outdoors with maps and compasses.",
-      },
-      { word: "futsal", hint: "Indoor football with fewer players." },
-      { word: "paintball", hint: "Tactical sport with colored pellets." },
-      { word: "airsoft", hint: "Combat simulation using replica guns." },
-      { word: "quidditch", hint: "Fantasy sport brought into real life." },
-      {
-        word: "pickleball",
-        hint: "Hybrid of tennis, badminton, and ping pong.",
-      },
-      { word: "paddle", hint: "Popular racquet sport in Spain." },
-      { word: "frisbee", hint: "Casual beach game tossing discs." },
-      {
-        word: "kabaddi",
-        hint: "Traditional Indian sport mixing tag and wrestling.",
-      },
-      {
-        word: "sepak takraw",
-        hint: "Kick volleyball popular in Southeast Asia.",
-      },
-      { word: "gaelic football", hint: "Irish sport mixing soccer and rugby." },
-      { word: "hurling", hint: "Ancient Irish stick-and-ball sport." },
-      { word: "floorball", hint: "Indoor hockey with plastic sticks." },
-      { word: "netball", hint: "Like basketball, but no dribbling." },
-      { word: "speed skating", hint: "Racing on ice with long blades." },
-      { word: "figure skating", hint: "Ice sport mixing spins and artistry." },
-      {
-        word: "ballet",
-        hint: "Dance treated as a sport for its physical demands.",
-      },
-      { word: "park skating", hint: "Performing tricks in bowls and ramps." },
-      { word: "kickboxing", hint: "A combat sport mixing punches and kicks." },
-      { word: "capoeira", hint: "Brazilian art blending dance and fighting." },
-      {
-        word: "sambo",
-        hint: "Russian martial art combining judo and wrestling.",
-      },
-      { word: "jiujitsu", hint: "Brazilian martial art focused on grappling." },
-      { word: "bodybuilding", hint: "Sport of sculpting the physique." },
-      { word: "cheer stunts", hint: "Balancing teammates high in the air." },
-      {
-        word: "rope climbing",
-        hint: "Strength sport involving vertical ropes.",
-      },
-      {
-        word: "strongman",
-        hint: "Competitions of lifting stones and pulling trucks.",
-      },
-      { word: "armwrestling", hint: "Two hands locked in strength contest." },
-      {
-        word: "mountaineering",
-        hint: "Climbing the tallest peaks in the world.",
-      },
-      { word: "hiking", hint: "Endurance walking across challenging terrain." },
+      { word: "Football", hint: "The beautiful game played on grass" },
+      { word: "Basketball", hint: "Orange ball meets tall hoops" },
+      { word: "Tennis", hint: "Game of love and rallies" },
+      { word: "Cricket", hint: "Bats, wickets, and overs" },
+      { word: "Rugby", hint: "A scrum-heavy contest with an oval ball" },
+      { word: "Ice Hockey", hint: "Fast-paced sport played on frozen ground" },
+      { word: "Volleyball", hint: "Spiking the ball across a net" },
+      { word: "Handball", hint: "Throwing goals in an indoor arena" },
+      { word: "Table Tennis", hint: "Small paddles, fast rallies" },
+      { word: "Badminton", hint: "Shuttlecock in flight" },
+      { word: "Athletics", hint: "Running, jumping, throwing in stadiums" },
+      { word: "Swimming", hint: "Racing through lanes of water" },
+      { word: "Cycling", hint: "Pedals turning through mountains" },
+      { word: "Boxing", hint: "Two fighters in a ring" },
+      { word: "MMA", hint: "Mixed combat styles in a cage" },
+      { word: "Wrestling", hint: "Pins and holds on the mat" },
+      { word: "Golf", hint: "Clubs swinging on green fields" },
+      { word: "Baseball", hint: "Bat meets ball in innings" },
+      { word: "Softball", hint: "A diamond game with larger balls" },
+      { word: "Fencing", hint: "Duel with blades and quick steps" },
+      { word: "Archery", hint: "Bows aimed at concentric circles" },
+      { word: "Skiing", hint: "Sliding down snowy slopes" },
+      { word: "Snowboarding", hint: "One board carving winter trails" },
+      { word: "Figure Skating", hint: "Artistic spins on ice" },
+      { word: "Surfing", hint: "Riding waves on a board" },
+      { word: "Sailing", hint: "Harnessing wind on water" },
+      { word: "Rowing", hint: "Oars propelling boats in sync" },
+      { word: "Canoeing", hint: "Paddling in narrow vessels" },
+      { word: "Kayaking", hint: "One paddle, whitewater adventure" },
+      { word: "Triathlon", hint: "Swim, bike, run challenge" },
+      { word: "Marathon", hint: "Endurance run of 42 kilometers" },
+      { word: "Skateboarding", hint: "Tricks on wheels and ramps" },
+      { word: "Climbing", hint: "Scaling rocks or indoor walls" },
+      { word: "Gymnastics", hint: "Balance, flips, and artistry" },
+      { word: "Judo", hint: "Throws and holds from Japan" },
+      { word: "Karate", hint: "Strikes with precision and discipline" },
+      { word: "Taekwondo", hint: "High kicks from Korea" },
+      { word: "Kickboxing", hint: "Punches and kicks in a ring" },
+      { word: "Sumo Wrestling", hint: "Pushing rivals out of a circle" },
+      { word: "Horse Riding", hint: "Man and steed in motion" },
+      { word: "Equestrian Jumping", hint: "Horses clearing tall fences" },
+      { word: "Polo", hint: "Chasing a ball on horseback" },
+      { word: "Snooker", hint: "Cues striking colored balls" },
+      { word: "Darts", hint: "Throwing flights at a board" },
+      { word: "Lacrosse", hint: "Nets catching and passing a ball" },
+      { word: "Field Hockey", hint: "Sticks and ball on turf" },
+      { word: "Water Polo", hint: "Goals in a swimming pool" },
+      { word: "Speed Skating", hint: "Races around icy tracks" },
+      { word: "Skeleton", hint: "Head-first sled racing" },
+      { word: "Bobsleigh", hint: "Team sleds racing down icy runs" },
+      { word: "Curling", hint: "Stones sliding on ice sheets" },
+      { word: "Parkour", hint: "Urban running over obstacles" },
+      { word: "Muay Thai", hint: "Eight-limbed striking art" },
+      { word: "Capoeira", hint: "Brazilian dance-like combat" },
+      { word: "Esports", hint: "Gaming turned into competition" },
+      { word: "Paddle Tennis", hint: "A smaller court variation of tennis" },
+      { word: "Pickleball", hint: "A mix of tennis, ping pong, and badminton" },
+      { word: "Sepak Takraw", hint: "Kicking a rattan ball over a net" },
+      { word: "Gaelic Football", hint: "Irish blend of soccer and rugby" },
+      { word: "Hurling", hint: "Ancient Irish stick and ball game" },
+      { word: "Kabaddi", hint: "Tag game with breath control" },
     ],
   },
   movies: {
@@ -503,7 +393,7 @@ const CATEGORIES_DATA: Record<
     ],
   },
   animals: {
-    title: "Here is the guess word hint animals",
+    title: "Animals",
     words: [
       { word: "Lion", hint: "Known as the king of the jungle." },
       { word: "Elephant", hint: "The largest land mammal." },
@@ -699,7 +589,7 @@ const CATEGORIES_DATA: Record<
     ],
   },
   celebrities: {
-    title: "Here is the guess word hint celebrities",
+    title: "Celebrities",
     words: [
       { word: "Elvis Presley", hint: "The King of Rock and Roll." },
       { word: "Marilyn Monroe", hint: "Blonde Hollywood icon of the 1950s." },
@@ -849,7 +739,7 @@ const CATEGORIES_DATA: Record<
     ],
   },
   countries: {
-    title: "Here is the guess word hint countries",
+    title: "Countries",
     words: [
       {
         word: "United States",
@@ -1134,181 +1024,131 @@ const CATEGORIES_DATA: Record<
     ],
   },
   cartoons2000s: {
-    title: "Best Jetix and Cartoon Network from 2000s",
+    title: "Best Jetix and Cartoon Network Classics",
     words: [
-      // --- Cartoon Network Classics (2000s) ---
+      { word: "Dragon Ball Z", hint: "Saiyans powering up beyond limits" },
+      { word: "Naruto", hint: "A ninja with dreams of becoming Hokage" },
+      { word: "One Piece", hint: "Pirates chasing the greatest treasure" },
+      { word: "Bleach", hint: "A substitute shinigami with a huge sword" },
       {
-        word: "Dexter's Laboratory",
-        hint: "A boy genius hides a secret lab from his sister.",
+        word: "Fullmetal Alchemist",
+        hint: "Two brothers seeking the philosopher’s stone",
+      },
+      { word: "Death Note", hint: "A notebook that decides fate" },
+      { word: "Inuyasha", hint: "Half-demon searching for shards" },
+      { word: "Yu Yu Hakusho", hint: "A delinquent turned spirit detective" },
+      { word: "Cowboy Bebop", hint: "Bounty hunters wandering the galaxy" },
+      { word: "Trigun", hint: "A gunslinger known as the humanoid typhoon" },
+
+      {
+        word: "Sailor Moon",
+        hint: "Magical girls fighting for love and justice",
       },
       {
-        word: "The Powerpuff Girls",
-        hint: "Three sisters fight crime with sugar, spice, and everything nice.",
+        word: "Great Teacher Onizuka",
+        hint: "A biker gang leader turned teacher",
+      },
+      { word: "Monster", hint: "A surgeon entangled in a chilling manhunt" },
+      { word: "Yu Gi Oh", hint: "Cards hold power beyond imagination" },
+      { word: "Pokemon", hint: "Catch, train, and battle mystical creatures" },
+      {
+        word: "One Punch Man",
+        hint: "Hero who defeats foes with a single strike",
       },
       {
-        word: "Johnny Bravo",
-        hint: "A blonde Elvis-like guy who thinks he's irresistible.",
+        word: "Uncle from Another World",
+        hint: "Fantasy unfolds when a relative returns from another realm",
       },
+      //
+
       {
-        word: "Ed Edd n Eddy",
-        hint: "Three friends obsessed with jawbreakers.",
-      },
-      {
-        word: "Courage the Cowardly Dog",
-        hint: "A pink dog living with an old couple in the middle of nowhere.",
-      },
-      {
-        word: "Samurai Jack",
-        hint: "A warrior sent to the future to battle Aku.",
-      },
-      {
-        word: "Codename: Kids Next Door",
-        hint: "Kids fighting adult tyranny from a treehouse HQ.",
-      },
-      {
-        word: "Foster's Home for Imaginary Friends",
-        hint: "A mansion where creations come to life.",
-      },
-      {
-        word: "Grim Adventures of Billy & Mandy",
-        hint: "Two kids befriend the Grim Reaper.",
-      },
-      {
-        word: "Camp Lazlo",
-        hint: "A monkey scout and friends at summer camp.",
-      },
-      {
-        word: "My Gym Partner's a Monkey",
-        hint: "A boy mistakenly enrolled in an animal school.",
-      },
-      { word: "Chowder", hint: "An apprentice chef with a big appetite." },
-      {
-        word: "Ben 10",
-        hint: "A kid finds a watch that turns him into aliens.",
+        word: "SpongeBob SquarePants",
+        hint: "Undersea sponge with pineapple house and quirky friends",
       },
       {
         word: "Teen Titans",
-        hint: "A group of young superheroes protect their city.",
-      },
-      { word: "Justice League", hint: "DC heroes unite to fight villains." },
-      {
-        word: "Duck Dodgers",
-        hint: "Daffy Duck takes on a sci-fi parody role.",
+        hint: "Young heroes balancing school and saving their city",
       },
       {
-        word: "Tom and Jerry Kids",
-        hint: "Classic cat and mouse reimagined younger.",
-      },
-      {
-        word: "Looney Tunes Show",
-        hint: "Iconic slapstick characters in a new format.",
-      },
-      { word: "Static Shock", hint: "Teen superhero controls electricity." },
-      {
-        word: "Megas XLR",
-        hint: "Gamers pilot a giant robot from their junkyard.",
-      },
-
-      // --- Jetix Classics (2000s) ---
-      {
-        word: "Digimon",
-        hint: "Digital monsters battle alongside chosen kids.",
-      },
-      { word: "Beyblade", hint: "Spinning tops decide epic battles." },
-      { word: "Yu-Gi-Oh!", hint: "Card duels unlock the heart of the cards." },
-      {
-        word: "Medabots",
-        hint: "Kids fight battles with customizable robots.",
-      },
-      { word: "Shaman King", hint: "A boy who communicates with spirits." },
-      {
-        word: "Monster Rancher",
-        hint: "A game-based world where creatures come alive.",
-      },
-      {
-        word: "Sonic X",
-        hint: "Blue speedster hedgehog enters the human world.",
-      },
-      {
-        word: "Totally Spies!",
-        hint: "Three girls juggling school and secret agent missions.",
-      },
-      {
-        word: "Martin Mystery",
-        hint: "Teen investigator solves paranormal mysteries.",
-      },
-      { word: "W.I.T.C.H.", hint: "Five girls with elemental magical powers." },
-      {
-        word: "Super Robot Monkey Team Hyperforce Go!",
-        hint: "Five robotic monkeys fight evil in space.",
-      },
-      { word: "Pucca", hint: "A girl always chasing her ninja crush." },
-      {
-        word: "Oban Star-Racers",
-        hint: "Intergalactic racing decides the fate of worlds.",
-      },
-      {
-        word: "The Tofus",
-        hint: "Eco-conscious family with quirky lifestyles.",
-      },
-      {
-        word: "Braceface",
-        hint: "Teen girl deals with braces and growing up.",
-      },
-      {
-        word: "Fillmore!",
-        hint: "School safety patrol parody of police dramas.",
-      },
-      {
-        word: "American Dragon Jake Long",
-        hint: "Teen boy transforms into a dragon.",
-      },
-      {
-        word: "Xiaolin Showdown",
-        hint: "Monks fight for mystical Shen Gong Wu artifacts.",
-      },
-      {
-        word: "Power Rangers SPD",
-        hint: "Rangers serving as intergalactic police.",
-      },
-      {
-        word: "Power Rangers Dino Thunder",
-        hint: "Rangers draw powers from prehistoric creatures.",
-      },
-      {
-        word: "Power Rangers Ninja Storm",
-        hint: "Ninja-trained rangers defend against evil.",
-      },
-      {
-        word: "Power Rangers Mystic Force",
-        hint: "Rangers using magic to battle darkness.",
-      },
-      {
-        word: "Power Rangers Time Force",
-        hint: "Rangers traveling from the future to stop crime.",
-      },
-      {
-        word: "Power Rangers Wild Force",
-        hint: "Rangers powered by animal spirits.",
-      },
-      {
-        word: "Spider-Man The Animated Series",
-        hint: "Teen with spider powers fights classic villains.",
+        word: "Samurai Jack",
+        hint: "A samurai thrown to the future fighting a shapeshifting evil",
       },
       {
         word: "X-Men Evolution",
-        hint: "Mutant heroes during their teenage years.",
+        hint: "Mutant teens mastering powers as hatred looms",
       },
-      { word: "Fantastic Four", hint: "Marvel’s first family of superheroes." },
+
       {
-        word: "Iron Man Armored Adventures",
-        hint: "Teen Tony Stark with a high-tech suit.",
+        word: "Avatar The Last Airbender",
+        hint: "One nimble boy must master elements to bring balance",
       },
-      { word: "Silver Surfer", hint: "Marvel cosmic hero rides the stars." },
+
       {
-        word: "Avengers United They Stand",
-        hint: "Earth’s mightiest heroes in animated form.",
+        word: "CatDog",
+        hint: "Two siblings sharing a body but opposite personalities",
       },
+
+      // Cartoon Network (20)
+      {
+        word: "Ed Edd n Eddy",
+        hint: "Three friends with endless get-rich schemes",
+      },
+      {
+        word: "Courage The Cowardly Dog",
+        hint: "Fearful pup in the middle of nowhere",
+      },
+      {
+        word: "Dexter's Laboratory",
+        hint: "A secret lab hidden from his sister",
+      },
+      {
+        word: "The Powerpuff Girls",
+        hint: "Sugar, spice, and everything nice",
+      },
+      { word: "Samurai Jack", hint: "A warrior thrown into the future" },
+      { word: "Johnny Bravo", hint: "Muscles and sunglasses, short on brains" },
+      {
+        word: "Codename Kids Next Door",
+        hint: "Treehouse spies fighting adulthood",
+      },
+      {
+        word: "Grim Adventures Of Billy And Mandy",
+        hint: "Kids hanging out with Death",
+      },
+      {
+        word: "Foster's Home For Imaginary Friends",
+        hint: "Where make-believe becomes real",
+      },
+      { word: "Chowder", hint: "A young chef with a big appetite" },
+      { word: "Ben 10", hint: "A boy and his alien watch" },
+      { word: "Camp Lazlo", hint: "Summer camp chaos in the forest" },
+      {
+        word: "My Gym Partner's A Monkey",
+        hint: "A human in an animal school",
+      },
+      { word: "Teen Titans", hint: "Young heroes in their tower" },
+      { word: "Total Drama Island", hint: "Reality show parody with cartoons" },
+      { word: "Megas XLR", hint: "A giant robot in the hands of gamers" },
+      { word: "Time Squad", hint: "History isn’t safe from time travelers" },
+      {
+        word: "Sheep In The Big City",
+        hint: "An innocent sheep vs. a secret military org",
+      },
+      { word: "I Am Weasel", hint: "A clever weasel and his dim sidekick" },
+
+      // Jetix (20)
+
+      { word: "Yin Yang Yo", hint: "Rabbit siblings mastering martial arts" },
+      {
+        word: "Power Rangers SPD",
+        hint: "Cops in spandex guarding the galaxy",
+      },
+      { word: "Shaman King", hint: "Battles to become the spirit champion" },
+      { word: "Medabots", hint: "Robots dueling under kids’ control" },
+      { word: "Sonic X", hint: "The blue blur races into another world" },
+      { word: "Dragon Booster", hint: "Racing with legendary dragons" },
+
+      { word: "Galactik Football", hint: "Soccer powered by cosmic energy" },
     ],
   },
   games: {
@@ -1326,12 +1166,12 @@ const CATEGORIES_DATA: Record<
       { word: "Pac-Man", hint: "Yellow circle avoids ghosts in a maze." },
       { word: "Sonic the Hedgehog", hint: "Blue speedster collects rings." },
       {
-        word: "Street Fighter II",
+        word: "Street Fighter",
         hint: "Arcade fighting classic with Ryu and Chun-Li.",
       },
       { word: "Mortal Kombat", hint: "Fighting game famous for 'Finish Him!'" },
       { word: "Pokémon Red and Blue", hint: "Catch ‘em all started here." },
-      { word: "Final Fantasy VII", hint: "JRPG with Cloud and Sephiroth." },
+      { word: "Final Fantasy", hint: "JRPG with Cloud and Sephiroth." },
       { word: "Metal Gear Solid", hint: "Stealth action with Solid Snake." },
 
       // Modern Icons
@@ -1362,36 +1202,30 @@ const CATEGORIES_DATA: Record<
       { word: "Elden Ring", hint: "Open-world fantasy from FromSoftware." },
 
       // Nintendo Greats
-      { word: "Super Smash Bros", hint: "Nintendo characters battle it out." },
-      {
-        word: "Animal Crossing",
-        hint: "Life simulation with friendly villagers.",
-      },
-      { word: "Splatoon", hint: "Colorful ink-based shooter." },
+
       { word: "Donkey Kong", hint: "Classic barrel-jumping arcade hit." },
-      { word: "Metroid", hint: "Space bounty hunter named Samus." },
+
       { word: "Kirby", hint: "Pink puffball who copies abilities." },
       { word: "Pokemon Go", hint: "Mobile AR game with global craze." },
       { word: "Mario Kart", hint: "Kart racing with shells and bananas." },
-      { word: "Super Mario 64", hint: "3D platforming revolution." },
+      { word: "Super Mario", hint: "3D platforming revolution." },
       {
-        word: "The Legend of Zelda: Breath of the Wild",
+        word: "The Legend of Zelda",
         hint: "Open-world Hyrule exploration.",
       },
 
       // Other Fan Favorites
       { word: "The Sims", hint: "Life simulation with build mode." },
       { word: "Skyrim", hint: "Fus Ro Dah in an open fantasy world." },
-      { word: "Red Dead Redemption 2", hint: "Epic western tale by Rockstar." },
+      { word: "Red Dead Redemption", hint: "Epic western tale by Rockstar." },
       { word: "Among Us", hint: "Crewmates vs impostors in space." },
-      { word: "Resident Evil 4", hint: "Survival horror with Leon Kennedy." },
+      { word: "Resident Evil", hint: "Survival horror with Leon Kennedy." },
       {
-        word: "Silent Hill 2",
+        word: "Silent Hill",
         hint: "Psychological horror with foggy streets.",
       },
-      { word: "Dark Souls", hint: "Prepare to die repeatedly." },
-      { word: "The Witcher 3: Wild Hunt", hint: "Geralt searches for Ciri." },
-      { word: "Hades", hint: "Greek underworld rogue-like adventure." },
+      { word: "The Witcher", hint: "Geralt searches for Ciri." },
+
       { word: "God of War", hint: "Spartan warrior battles gods." },
     ],
   },
@@ -1486,7 +1320,10 @@ export const useHangmanStore = create<StoreType>((set) => ({
         alphabetKeyboardData: ALPHABET,
         guessWord: state.categoriesData.words[randomIndexes].word
           .toLowerCase()
-          .split(""),
+          .split("")
+          .map((item) => {
+            return item.replace(/[^a-zA-Z\s]/g, "");
+          }),
         guessWordHint: state.categoriesData.words[randomIndexes].hint,
         gameWon: false,
       };

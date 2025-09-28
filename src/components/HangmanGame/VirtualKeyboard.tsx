@@ -17,7 +17,9 @@ export function VirtualKeyboard() {
     const clonedKeyboard = structuredClone(alphabetKeyboardData);
     const index = clonedKeyboard.findIndex((item) => item.keyName === letter);
 
-    if (guessWord.includes(letter.toLowerCase())) {
+    if (
+      guessWord.filter((item) => item !== " ").includes(letter.toLowerCase())
+    ) {
       handleGuessedWords(letter.toLowerCase());
       clonedKeyboard[index].type = "guessed";
       handleAlphabetKeyboardData(clonedKeyboard);
@@ -29,7 +31,7 @@ export function VirtualKeyboard() {
   }
 
   return (
-    <div className="flex flex-wrap gap-1  border rounded-md p-2  justify-center bg-gray-500">
+    <div className="md:w-[535px] flex flex-wrap gap-2  border rounded-md p-3  justify-center bg-gray-500">
       {alphabetKeyboardData.map((letter) => {
         return (
           <button

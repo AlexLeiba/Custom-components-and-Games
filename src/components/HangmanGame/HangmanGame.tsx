@@ -31,7 +31,7 @@ export function HangmanGame() {
   }, [selectedCategory, guessWord]);
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-800 gap-1">
-      <div className="flex justify-end w-[900px]">
+      <div className="flex justify-end lg:w-[1000px]  w-full">
         <div className="bg-gray-200 px-4 py-2 rounded-md ">
           <div className="flex gap-4">
             <p>
@@ -45,13 +45,13 @@ export function HangmanGame() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-200 p-4 rounded-md w-[900px] ">
+      <div className="bg-gray-200 p-4 rounded-md lg:w-[1000px] w-full min-h-[500px] ">
         <div className="flex md:flex-row flex-col gap-8 w-full h-full justify-between ">
           <ImageSection />
 
           <div className="flex flex-2  flex-col gap-2 justify-between items-end h-full">
             <Header />
-            <div className="flex flex-col gap-2">
+            <div className="flex w-full flex-col gap-2 items-end">
               <GuessWordCells />
               <VirtualKeyboard />
             </div>

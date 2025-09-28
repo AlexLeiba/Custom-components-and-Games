@@ -65,18 +65,17 @@ export function Header() {
         } else {
           data[selectedCategory].lost += 1;
           data[selectedCategory].name = selectedCategory;
-          console.log("else", data);
         }
-        localStorage.setItem("hangman", JSON.stringify(data));
       }
     }
   }, [failed, selectedCategory]);
 
   useEffect(() => {
-    const areAllLettersGuessed = guessWord.every((letter) => {
-      return guessedWords[letter] === letter;
-    });
-    console.log("🚀 ~ Header ~ areAllLettersGuessed:", areAllLettersGuessed);
+    const areAllLettersGuessed = guessWord
+      .filter((letter) => letter !== " ")
+      .every((letter) => {
+        return guessedWords[letter] === letter;
+      });
 
     if (areAllLettersGuessed) {
       triggerToast({
