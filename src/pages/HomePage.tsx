@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 function HomePage() {
   const PAGES_ROUTES = [
     {
+      path: "/minesweeper-game",
+      title: "Minesweeper Game",
+    },
+    {
+      path: "/hangman-game",
+      title: "Hangman Game",
+    },
+    {
       path: "/memory-game",
       title: "Memory Game",
     },
@@ -47,12 +55,12 @@ function HomePage() {
       title: "Select Colors Grid",
     },
     {
-      path: "/minesweeper-game",
-      title: "Minesweeper Game",
+      path: "/grid",
+      title: "Grid",
     },
     {
-      path: "/hangman-game",
-      title: "Hangman Game",
+      path: "/quiz",
+      title: "Quiz Game",
     },
   ];
 
