@@ -1,16 +1,27 @@
-# Custom components as:
 
-## Tic tac toe Game
+## Link : https://custom-components-and-games.netlify.app/
 
-## Memory Game
+#Custom components and Games
 
-## Toast notifications Hook for warning, errors, success, info messages
+##Games as:
+### Quiz Game
+### Minesweeper
+### Tic Tac Toe
+### Memory Game
 
-## File Explorer
+## Custom components as:
 
-## Nested Recursive messages with many functionalities
+### Tic tac toe Game
 
-## Reusable Pagination component
+### Memory Game
+
+### Toast notifications Hook for warning, errors, success, info messages
+
+### File Explorer
+
+### Nested Recursive messages with many functionalities
+
+### Reusable Pagination component
 
 
 
