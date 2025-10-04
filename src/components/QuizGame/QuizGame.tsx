@@ -1,4 +1,3 @@
-import React from "react";
 import { QuizHeader } from "./QuizHeader";
 import { QuizVariants } from "./QuizVariants";
 // PSEUDOCODE

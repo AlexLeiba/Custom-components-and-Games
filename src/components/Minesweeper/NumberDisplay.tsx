@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = { nrData: number; nrOfMines?: number; type: "flag" | "timer" };
 
 export function NumberDisplay({ nrData, nrOfMines, type }: Props) {

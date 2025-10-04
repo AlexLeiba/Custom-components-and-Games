@@ -1,5 +1,4 @@
 import { useStore } from "../../store/store";
-import React from "react";
 
 export function SubmittedData() {
   const {

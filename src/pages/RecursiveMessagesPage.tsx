@@ -1,4 +1,3 @@
-import React from "react";
 import { NestedComments } from "../components/NestedComments";
 import { Link } from "react-router-dom";
 

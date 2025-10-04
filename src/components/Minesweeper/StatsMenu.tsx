@@ -1,4 +1,3 @@
-import React from "react";
 import { useMinesweeperStore } from "../../store/minesweeperStore";
 
 export function StatsMenu() {

@@ -1,5 +1,3 @@
-import React from "react";
-
 function Loops() {
   const week = "Week";
   const day = "Day";

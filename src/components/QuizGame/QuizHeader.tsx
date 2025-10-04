@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuizStore } from "../../store/quizStore";
 
 export function QuizHeader() {

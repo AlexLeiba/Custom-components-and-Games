@@ -1,4 +1,3 @@
-import React from "react";
 import { HangmanGame } from "../components/HangmanGame/HangmanGame";
 
 function HangmangamePage() {

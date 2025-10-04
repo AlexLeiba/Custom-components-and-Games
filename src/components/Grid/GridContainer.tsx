@@ -1,5 +1,3 @@
-import React from "react";
-
 const elements = [
   { name: "a" },
   { name: "b" },

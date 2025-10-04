@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Button } from "../ui/button";
 import { useHangmanStore } from "../../store/hangmanStore";
 import { Heart } from "lucide-react";
