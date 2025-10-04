@@ -11,10 +11,6 @@
 
 ## Custom components as:
 
-### Tic tac toe Game
-
-### Memory Game
-
 ### Toast notifications Hook for warning, errors, success, info messages
 
 ### File Explorer
@@ -22,6 +18,8 @@
 ### Nested Recursive messages with many functionalities
 
 ### Reusable Pagination component
+
+### Timer
 
 
 
