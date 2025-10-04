@@ -1,9 +1,9 @@
 
 ## Link : https://custom-components-and-games.netlify.app/
 
-#Custom components and Games
+# Custom components and Games
 
-##Games as:
+## Games as:
 ### Quiz Game
 ### Minesweeper
 ### Tic Tac Toe
