@@ -1,17 +1,17 @@
-const elements = [
-  { name: "a" },
-  { name: "b" },
-  { name: "c" },
-  { name: "d" },
-  { name: "e" },
-  { name: "f" },
-  { name: "g" },
-  { name: "h" },
-];
+// const elements = [
+//   { name: "a" },
+//   { name: "b" },
+//   { name: "c" },
+//   { name: "d" },
+//   { name: "e" },
+//   { name: "f" },
+//   { name: "g" },
+//   { name: "h" },
+// ];
 export function GridContainer() {
   return (
     <div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr)))] grid-rows-[minmax(50px,1fr)] grid-flow-row gap-x-4 gap-y-4 ">
+      {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr)))] grid-rows-[minmax(50px,1fr)] grid-flow-row gap-x-4 gap-y-4 ">
         {elements.map((element) => {
           return <Card name={element.name} />;
         })}
@@ -34,15 +34,15 @@ export function GridContainer() {
         ></div>
 
         <div className="bg-black p-4 absolute top-0"></div>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-const Card = (props: { name: string }) => {
-  return (
-    <div className="bg-gray-200 p-4">
-      <p className="text-2xl">{props.name}</p>
-    </div>
-  );
-};
+// const Card = (props: { name: string }) => {
+//   return (
+//     <div className="bg-gray-200 p-4">
+//       <p className="text-2xl">{props.name}</p>
+//     </div>
+//   );
+// };
