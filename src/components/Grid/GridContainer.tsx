@@ -7,7 +7,15 @@
 //   { name: "f" },
 //   { name: "g" },
 //   { name: "h" },
+
+import React from "react";
+
 // ];
+// const Button = React.lazy(() =>
+//   import("app1/button").then((module) => ({ default: module.Button }))
+// );
+// import { Button } from "app1/button";
+// import { Input } from "app2/input";
 export function GridContainer() {
   return (
     <div>
