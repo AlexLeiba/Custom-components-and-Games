@@ -16,7 +16,7 @@ export type ToastTriggerProps = {
     | "center";
 };
 
-const toastContainerPositions = cva("fixed flex  gap-2 p-4 z-50", {
+const toastContainerPositions = cva("fixed flex-col  gap-4 p-4 z-50", {
   variants: {
     position: {
       center: "top-2 left-1/2 -translate-x-1/2 ",
@@ -56,6 +56,7 @@ export function useToast({
 
   useEffect(() => {
     if (duration) {
+      let timerId: NodeJS.Timeout | undefined = undefined;
       for (let i = toastData.length; i > 0; i--) {
         clearTimeout(timerId); //Clear timer at each iteration
 
@@ -72,7 +73,7 @@ export function useToast({
   function triggerToast({
     type,
     message,
-    duration = 3000,
+    duration = 2000,
     animation,
   }: ToastTriggerProps) {
     setToastData((prev) => {

@@ -62,6 +62,10 @@ function HomePage() {
       path: "/quiz",
       title: "Quiz Game",
     },
+    {
+      path: "/file-parsers",
+      title: "File Parsers Csv, Json, CLSX",
+    },
   ];
 
   return (
