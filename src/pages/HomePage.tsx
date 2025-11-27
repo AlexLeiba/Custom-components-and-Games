@@ -64,7 +64,11 @@ function HomePage() {
     },
     {
       path: "/file-parsers",
-      title: "File Parsers Csv, Json, CLSX",
+      title: "File Parsers Csv, Json,",
+    },
+    {
+      path: "/excel-parsers",
+      title: "File Parsers XLSX JSON",
     },
   ];
 

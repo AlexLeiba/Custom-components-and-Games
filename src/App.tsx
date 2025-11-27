@@ -21,6 +21,7 @@ import HangmangamePage from "./pages/HangmangamePage";
 import GridPage from "./pages/GridPage";
 import QuizGamePage from "./pages/QuizGamePage";
 import FileParsersPage from "./pages/CsvParserPage";
+import ExcelParserPage from "./pages/ExcelParserPage";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -51,6 +52,7 @@ function App() {
           <Route path="/grid" element={<GridPage />} />
           <Route path="/quiz" element={<QuizGamePage />} />
           <Route path="/file-parsers" element={<FileParsersPage />} />
+          <Route path="/excel-parsers" element={<ExcelParserPage />} />
 
           {/* MULTISTEP FORM */}
           <Route path="/multistep-form-1" element={<FirstStep />} />

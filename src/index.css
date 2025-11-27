@@ -167,18 +167,23 @@ body {
   }
 }
 
-/* .minesweeperFace::after {
-  content: "🙂";
+.excel-table {
+  border: 1px solid gray;
+  /* border-spacing: 10px; */
 }
 
-.minesweeperFace:active::after {
-  content: "😨";
+.excel-table thead {
+  background-color: gray;
+  color: white;
+  height: 50px;
 }
 
-.minesweeperFace.win::after {
-  content: "😎";
+.excel-table tbody tr {
+  background-color: white;
+  color: black;
+  height: 50px;
 }
 
-.minesweeperFace.lose::after {
-  content: "😵";
-} */
+.excel-table tbody tr:nth-child(odd) {
+  background-color: rgb(208, 208, 208);
+}

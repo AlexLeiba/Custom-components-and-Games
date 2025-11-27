@@ -45,7 +45,7 @@ function CsvParser() {
       const fileReader = new FileReader(); //read data async
       fileReader.onload = (parsedData) => {
         //returns data after was loaded
-        console.log("parsedData", parsedData.target?.result);
+
         if (!parsedData.target?.result) {
           throw new Error("File wasn't uploaded.");
         }
