@@ -55,8 +55,8 @@ function HomePage() {
       title: "Select Colors Grid",
     },
     {
-      path: "/grid",
-      title: "Grid",
+      path: "/logic-tests",
+      title: "Logic Tests",
     },
     {
       path: "/quiz",

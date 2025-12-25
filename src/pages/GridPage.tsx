@@ -1,9 +1,11 @@
-import { GridContainer } from "../components/Grid/GridContainer";
+import { TreeData } from "../components/logic-tests/TreeData";
+import { RxjsContainer } from "../components/logic-tests/RxjsContainer";
 
 function GridPage() {
   return (
     <div>
-      <GridContainer />
+      <TreeData />
+      {/* <RxjsContainer /> */}
     </div>
   );
 }

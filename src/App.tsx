@@ -49,7 +49,7 @@ function App() {
           <Route path="/select-colors" element={<SelectColorsGridPage />} />
           <Route path="/minesweeper-game" element={<MinesweeperPage />} />
           <Route path="/hangman-game" element={<HangmangamePage />} />
-          <Route path="/grid" element={<GridPage />} />
+          <Route path="/logic-tests" element={<GridPage />} />
           <Route path="/quiz" element={<QuizGamePage />} />
           <Route path="/file-parsers" element={<FileParsersPage />} />
           <Route path="/excel-parsers" element={<ExcelParserPage />} />
