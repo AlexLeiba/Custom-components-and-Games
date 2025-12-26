@@ -1,8 +1,11 @@
+import { Plus, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function TreeData() {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const [categoriesData, setCategoriesData] = useState<CategoriesType[]>([]);
+  const [categoryValue, setCategoryValue] = useState<string>("");
+  const [addNewSubcategory, setAddNewSubcategory] = useState<number>(0);
   console.log("🚀 ~ DATA->>>\n\n", selectedIds);
 
   type CategoriesType = {
@@ -90,7 +93,6 @@ export function TreeData() {
     categoriesParam: CategoriesType[],
     categoryId: number
   ) {
-    console.log("🚀 ~ handleClickCategory ~ categoryId:", categoriesParam);
     const ids: number[] = [];
 
     const foundNode = findSelectedNode(categoriesParam, categoryId);
@@ -156,25 +158,111 @@ export function TreeData() {
     return ids;
   }
 
+  function handleAddNewCat(selectedParentNode: CategoriesType) {
+    console.log("added new cat", categoryValue);
+    const newCategoryData = {
+      id: Date.now(),
+      name: categoryValue,
+      parentCategory: { id: selectedParentNode.id },
+      hasChildren: false,
+      childrenCategories: [],
+    };
+
+    const embeddedNewCategory = embedNewSubcategories(
+      newCategoryData,
+      selectedParentNode,
+      categoriesData
+    );
+    console.log(
+      "🚀 ~ handleAddNewCat ~ embeddedNewCategory:\n\n\n",
+      embeddedNewCategory
+    );
+
+    setCategoriesData(embeddedNewCategory);
+
+    // MAP throu all current cat data
+    // WHEN selectedNode === categoryData ID
+    // copy all current data, inject new cat under children
+    // RETURN parsed value to setCategoriesData
+    //  setCategoriesData(())
+  }
+
+  function embedNewSubcategories(
+    newCategoryData: CategoriesType,
+    selectedParentNode: CategoriesType,
+    categoriesData: CategoriesType[]
+  ) {
+    const result = categoriesData.map((cat): CategoriesType => {
+      if (cat.id === selectedParentNode.id) {
+        // found the parent
+        console.log("FOund", cat);
+        return {
+          ...cat,
+          hasChildren: true,
+          childrenCategories: [...cat.childrenCategories, newCategoryData],
+        };
+      }
+      if (cat.hasChildren) {
+        // recursive into children
+        return {
+          ...cat,
+          childrenCategories: embedNewSubcategories(
+            newCategoryData,
+            selectedParentNode,
+            cat.childrenCategories
+          ),
+        };
+      }
+
+      // unchanged node
+      return cat;
+    });
+
+    return result;
+  }
+
   function renderCategories(categoriesData: CategoriesType[]) {
     return (
       <div>
         {categoriesData.map((cat) => {
           return (
             <div key={cat.id} className="flex flex-col gap-2">
-              <div
-                className="flex gap-2"
-                onClick={() => handleClickCategory(categoriesData, cat.id)}
-              >
-                <p className="font-bold">{cat.name}</p>
-                <p>ID: {cat.id}</p>
-                <input
-                  type="checkbox"
-                  onChange={(e) => {
-                    console.log(e.target.value);
-                  }}
-                  checked={selectedIds.includes(cat.id)}
-                />
+              <div className="flex gap-2">
+                <div
+                  className="flex gap-2"
+                  onClick={() => handleClickCategory(categoriesData, cat.id)}
+                >
+                  <p className="font-bold">{cat.name}</p>
+                  <p>ID: {cat.id}</p>
+                  <input
+                    type="checkbox"
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                    }}
+                    checked={selectedIds.includes(cat.id)}
+                  />
+                </div>
+                {addNewSubcategory === cat.id ? (
+                  <>
+                    <X onClick={() => setAddNewSubcategory(0)} />
+                    <input
+                      className="border-2 p-1"
+                      type="text"
+                      value={categoryValue}
+                      onChange={(e) => setCategoryValue(e.target.value)}
+                    />
+                    <button
+                      onClick={() => {
+                        handleAddNewCat(cat);
+                        setAddNewSubcategory(0);
+                      }}
+                    >
+                      ADD
+                    </button>
+                  </>
+                ) : (
+                  <Plus onClick={() => setAddNewSubcategory(cat.id)} />
+                )}
               </div>
 
               <div className="ml-8">
