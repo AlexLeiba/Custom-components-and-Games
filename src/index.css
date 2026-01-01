@@ -187,3 +187,24 @@ body {
 .excel-table tbody tr:nth-child(odd) {
   background-color: rgb(208, 208, 208);
 }
+
+.circle-title {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.graph-circle {
+  /* fill: black; */
+  r: 50px;
+}
+.graph-circle:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  stroke: blueviolet;
+  stroke-width: 3px;
+  transition: all 0.5s ease-in-out;
+}
+
+.chart-bar-svg:hover {
+  opacity: 0.7;
+}

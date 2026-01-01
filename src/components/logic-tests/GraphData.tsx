@@ -1,5 +1,9 @@
 import { useEffect, useState, type DragEvent, type MouseEvent } from "react";
 
+// An adjacency list is a way to represent a graph (a set of nodes with connections between them).
+// Instead of listing all possible connections in a big table, you list only the neighbors of each node.
+// For each node, keep a list of the nodes it is directly connected to.
+
 const initialNodes = [
   { id: "A", x: 100, y: 100 },
   { id: "B", x: 300, y: 100 },
@@ -95,8 +99,8 @@ export function GraphData() {
         if (node.id === draggingId) {
           return {
             ...node,
-            x: x - offset.x,
-            y: y - offset.y,
+            x: event.clientX - offset.x,
+            y: event.clientY - offset.y,
           };
         }
 
@@ -125,10 +129,12 @@ export function GraphData() {
   return (
     <svg
       width="100%"
-      height="800"
+      height="100vh"
       style={{ border: "1px solid #ccc" }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
+      //minx miny width height (coordinate system) coordinate space
+      // viewTarget={0}
     >
       {/* Edges */}
       {edges.map((edge, i) => {
@@ -156,7 +162,7 @@ export function GraphData() {
 
       {/* Nodes */}
       {nodes.map((node) => (
-        <g
+        <g //for grouping svg
           onDragStart={(e) => handleDragNode(node, e)}
           onDrag={(e) => handleDragNode(node, e)}
           key={node.id}
@@ -165,14 +171,17 @@ export function GraphData() {
           onMouseDown={(e) => handleMouseDown(e, node)}
         >
           <circle
+            className="graph-circle"
             cx={node.x}
             cy={node.y}
             r={30}
-            fill={selectedNode.source === node.id ? "#46e5c5" : "#4f46e5"}
+            fill={selectedNode.source === node.id ? "#46e5c5" : "#7872db"}
+            fillOpacity={100}
             // fillOpacity={0.5}
           ></circle>
 
           <text
+            className="circle-title"
             x={node.x}
             y={node.y + 5}
             textAnchor="middle"
