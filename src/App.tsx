@@ -18,10 +18,11 @@ import TimerPage from "./pages/TimerPage";
 import SelectColorsGridPage from "./pages/SelectColorsGridPage";
 import MinesweeperPage from "./pages/MinesweeperPage";
 import HangmangamePage from "./pages/HangmangamePage";
-import GridPage from "./pages/GridPage";
+import TestsPage from "./pages/TestsPage";
 import QuizGamePage from "./pages/QuizGamePage";
 import FileParsersPage from "./pages/CsvParserPage";
 import ExcelParserPage from "./pages/ExcelParserPage";
+import CypressTests from "./pages/Cypress/CypressTests";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -49,7 +50,7 @@ function App() {
           <Route path="/select-colors" element={<SelectColorsGridPage />} />
           <Route path="/minesweeper-game" element={<MinesweeperPage />} />
           <Route path="/hangman-game" element={<HangmangamePage />} />
-          <Route path="/logic-tests" element={<GridPage />} />
+          <Route path="/logic-tests" element={<TestsPage />} />
           <Route path="/quiz" element={<QuizGamePage />} />
           <Route path="/file-parsers" element={<FileParsersPage />} />
           <Route path="/excel-parsers" element={<ExcelParserPage />} />
@@ -59,6 +60,7 @@ function App() {
           <Route path="/multistep-form-2" element={<SecondStep />} />
           <Route path="/multistep-form-3" element={<ThirdStep />} />
           <Route path="/multistep-form-4" element={<ForthStep />} />
+          <Route path="/cypress-tests" element={<CypressTests />} />
         </Routes>
       </BrowserRouter>
     </>

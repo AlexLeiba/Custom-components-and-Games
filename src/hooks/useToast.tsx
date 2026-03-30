@@ -28,7 +28,8 @@ const toastContainerPositions = cva("fixed flex-col  gap-4 p-4 z-50", {
   },
 });
 
-let timerId: number; //keep outside of hook to not loose the timer Id when we add a new Toast
+// let timerId: number;
+//keep outside of hook to not loose the timer Id when we add a new Toast
 // This approach will keep the timerId in memory In order to Clear Timer each time we click a new Toast.
 
 /**
@@ -56,7 +57,7 @@ export function useToast({
 
   useEffect(() => {
     if (duration) {
-      let timerId: NodeJS.Timeout | undefined = undefined;
+      let timerId: any = undefined;
       for (let i = toastData.length; i > 0; i--) {
         clearTimeout(timerId); //Clear timer at each iteration
 

@@ -208,3 +208,69 @@ body {
 .chart-bar-svg:hover {
   opacity: 0.7;
 }
+
+/* fluid values that stays in the defined range */
+/* min preffered max */
+/* browser picked preffered value, but never goes below min, and above max */
+#text-tests {
+  font-size: clamp(1rem, 5vw, 2rem);
+  padding: clamp(1rem, 5vw, 4rem);
+}
+
+#card-tests {
+  width: clamp(280px, 50%, 600px);
+}
+
+/* GRID CONTAINER////////////////////////////// */
+.image-container {
+  /* width: 500px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-rows: none; /** default. not specified rows size.not explicit rows are defined. grid creates the implicit as needed **/
+  row-gap: 50px;
+  column-gap: 10px;
+  /* gap: 50px 10px; */
+
+  grid-auto-rows: auto; /** for sizing of rows based on their content, it says, size the (height) curent row based on the talles element in row**/
+
+  grid-auto-flow: row; /** Items fill rows left-to-right, then top-to-bottom **/
+
+  align-items: stretch; /** align-items will act as cross axis (which will impact grid items vertically)  by default it will fill the box of grid items vertically**/
+
+  justify-items: stretch; /** once the grid auto flow is row, main axis is justify-items on row, it may impact grid items horizontally **/
+  /* 
+  This means every grid item stretches to fill its grid area by default. */
+}
+
+.image-container .card {
+  max-height: 500px;
+  border: 1px solid black;
+  padding: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: clip;
+
+  align-self: end; /** vertically grid item**/
+  justify-self: stretch; /** horizontally grid item**/
+
+  min-width: auto; /** by defauylt all grid items have min-width, and min-height auto, means minimim width and height will be their content**/
+  min-height: auto;
+}
+
+.image-container .card .card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  line-clamp: 10;
+  overflow: hidden;
+}
+
+/* TEST IMAGE */
+.image-test {
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+  /** how should image behave inside its box **/
+}

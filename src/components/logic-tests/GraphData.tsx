@@ -20,6 +20,7 @@ const initialEdges = [
 export function GraphData() {
   const [nodes, setNodes] =
     useState<{ id: string; x: number; y: number }[]>(initialNodes);
+
   const [edges, setEdges] =
     useState<{ source: string; target: string }[]>(initialEdges);
   console.log("🚀 ~ GraphData ~ edges:", edges);
@@ -74,22 +75,23 @@ export function GraphData() {
   // delete edge
   function handleEdgeDelete(source: string, target: string) {
     setEdges((prev) =>
-      prev.filter((edge) => edge.source !== source && edge.target !== target)
+      prev.filter((edge) => edge.source !== source && edge.target !== target),
     );
   }
 
   function handleDragNode(
     node: { id: string; x: number; y: number },
-    e: DragEvent<SVGGElement>
+    e: DragEvent<SVGGElement>,
   ) {
-    console.log("🚀 ~ handleDragNode ~ e:", e);
+    console.log("🚀 ~ handleDragNode ~ e:", e, node);
   }
 
   function handleMouseMove(event: MouseEvent<SVGSVGElement>) {
     if (!draggingId) return;
     console.log("🚀 ~ handleMouseMove ~ event:", event);
-    const x = event.clientX; //new mouse position
-    const y = event.clientY;
+    //new mouse position
+    // const x = event.clientX;
+    // const y = event.clientY;
 
     // change position of each node element on move into svg view
     // loop throug selected node and update its position
@@ -111,7 +113,7 @@ export function GraphData() {
 
   function handleMouseDown(
     event: MouseEvent<SVGGElement>,
-    node: { id: string; x: number; y: number }
+    node: { id: string; x: number; y: number },
   ) {
     console.log("🚀 ~ handleMouseDown ~ event:", event);
     setDraggingId(node.id);

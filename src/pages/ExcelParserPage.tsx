@@ -1,4 +1,3 @@
-import React from "react";
 import ExcelParser from "../components/ExcelParser/ExcelParser";
 
 function ExcelParserPage() {

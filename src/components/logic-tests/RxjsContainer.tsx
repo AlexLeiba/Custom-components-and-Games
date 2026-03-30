@@ -1,4 +1,3 @@
-import React from "react";
 import { Observable } from "rxjs";
 import { map, filter } from "rxjs/operators";
 
@@ -48,7 +47,7 @@ export function RxjsContainer() {
 
   observable.pipe(
     map((data: any) => data.data),
-    filter((data) => data.length > 1)
+    filter((data) => data.length > 1),
   );
 
   const observer = {

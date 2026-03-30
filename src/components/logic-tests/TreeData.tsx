@@ -1,45 +1,49 @@
 import { Plus, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export function TreeData() {
-  const [selectedIds, setSelectedIds] = useState<number[]>([]);
-  const [categoriesData, setCategoriesData] = useState<CategoriesType[]>([]);
-  const [categoryValue, setCategoryValue] = useState<string>("");
-  const [addNewSubcategory, setAddNewSubcategory] = useState<number>(0);
-  console.log("🚀 ~ DATA->>>\n\n", selectedIds);
+// GOAL:
+// 1:RENDER ALL CATEGORIES AND SUBCATEGORIES
+// 2:SELECT A CATEGORY, AND AUTO SELECTION OF ALL SUBCATEGORIES
+//3:IF SUBCATEGORIES WERE SELECTED, DESELECT THEM
+//4:ADD SUBCATEGORY UNDER SELECTED PARENT CAT
+//5:DELETE CATEGORY AND ALL ITS SUBCATEGORIES
 
-  type CategoriesType = {
+type CategoriesType = {
+  id: number;
+  name: string;
+  parentCategory: {
     id: number;
-    name: string;
-    parentCategory: {
-      id: number;
-    };
-    hasChildren: boolean;
-    childrenCategories: CategoriesType[];
   };
+  hasChildren: boolean;
+  childrenCategories: CategoriesType[];
+};
+
+export function TreeData() {
+  const [categoriesData, setCategoriesData] = useState<CategoriesType[]>([]); //proof of state
+
+  const [selectedIds, setSelectedIds] = useState<number[]>([]); //ids oc interated cats
+
+  const [categoryValue, setCategoryValue] = useState<string>(""); //?
+
+  const [addNewSubcategory, setAddNewSubcategory] = useState<number>(0); //?
+
+  // console.log("🚀 TREE DATA->>:\n\n\n", categoriesData);
+  // console.log("🚀 ~ IDS->>>\n\n", selectedIds);
 
   async function getAllSubcategories(rootCat: CategoriesType[]) {
     const allNestedCategories = await Promise.all(
       rootCat.map((cat) => {
-        return fetchSubcategories(cat);
-      })
+        return fetchSubcategories(cat); //will do api calls , needs to be async, to await for the response before to return.
+      }),
     );
 
     setCategoriesData(allNestedCategories);
   }
 
-  useEffect(() => {
-    getAllSubcategories(çategoriesRoot);
-  }, []);
-
-  // api call
-  async function getCategoryById(id: number) {
-    return categories.find((category) => category.id === id);
-  }
-
   async function fetchSubcategories(
-    catData: CategoriesType
+    catData: CategoriesType,
   ): Promise<CategoriesType> {
+    // if no children: return current obj
     if (!catData.hasChildren) {
       return {
         ...catData,
@@ -58,21 +62,24 @@ export function TreeData() {
       }
 
       if (!childrenCategory.hasChildren) {
+        //checkd from the response if it has any other children
         return {
           ...catData,
           childrenCategories: childrenCategory.childrenCategories,
         };
       }
 
+      // we have more children of children, we need to fetch them as well
       // if api response has children
+      //ROOT catData is 96
       const nestedChildren = await Promise.all(
         childrenCategory.childrenCategories.map((child) =>
-          fetchSubcategories(child)
-        )
+          fetchSubcategories(child),
+        ),
       );
 
       return {
-        ...catData,
+        ...catData, //nested cat data will be copied at each iteration
         childrenCategories: nestedChildren,
       };
     } catch (error) {
@@ -86,16 +93,26 @@ export function TreeData() {
     // MAKE REQ FOR NEW CHILD
   }
 
+  useEffect(() => {
+    // ACTS AS AN API FETCH OF ROOT CATS
+    getAllSubcategories(çategoriesRoot);
+  }, []);
+
+  // api call
+  async function getCategoryById(id: number) {
+    return categories.find((category) => category.id === id);
+  }
+
   // TO find clicked element :return it, use other fn to map through all its children and collect its ids in desc order
   // TO STORE ALL ITS CILDREN IDS
   // TO RETURN THEM
   function handleClickCategory(
-    categoriesParam: CategoriesType[],
-    categoryId: number
+    categoriesData: CategoriesType[],
+    categoryId: number,
   ) {
-    const ids: number[] = [];
+    // const ids: number[] = [];
 
-    const foundNode = findSelectedNode(categoriesParam, categoryId);
+    const foundNode = findSelectedNode(categoriesData, categoryId);
 
     if (!foundNode) {
       return;
@@ -107,6 +124,7 @@ export function TreeData() {
     // if found selected node: THEN map and collect ids recursively
 
     setSelectedIds((prev) => {
+      // if no ids were selected, just select all collected
       if (prev.length === 0) {
         return [...collectedSubIds];
       }
@@ -122,10 +140,10 @@ export function TreeData() {
   }
 
   function findSelectedNode(
-    categoriesParam: CategoriesType[],
-    categoryId: number
+    categoriesData: CategoriesType[],
+    categoryId: number,
   ): CategoriesType | null {
-    for (const catObj of categoriesParam) {
+    for (const catObj of categoriesData) {
       if (catObj.id === categoryId) {
         return catObj;
       }
@@ -141,7 +159,7 @@ export function TreeData() {
 
   // collect all ids
   function collectSelectedCategoryIds(selectedNode: CategoriesType) {
-    const ids: number[] = []; //[91,93]
+    const ids: number[] = [1]; //[91,93]
 
     ids.push(selectedNode.id); //push first  parent ID
 
@@ -171,14 +189,14 @@ export function TreeData() {
     const embeddedNewCategory = embedNewSubcategories(
       newCategoryData,
       selectedParentNode,
-      categoriesData
+      categoriesData,
     );
     console.log(
       "🚀 ~ handleAddNewCat ~ embeddedNewCategory:\n\n\n",
-      embeddedNewCategory
+      embeddedNewCategory,
     );
 
-    setCategoriesData(embeddedNewCategory);
+    setCategoriesData(embeddedNewCategory); //add new updated cats with new one in Proof of data
 
     // MAP throu all current cat data
     // WHEN selectedNode === categoryData ID
@@ -190,7 +208,7 @@ export function TreeData() {
   function embedNewSubcategories(
     newCategoryData: CategoriesType,
     selectedParentNode: CategoriesType,
-    categoriesData: CategoriesType[]
+    categoriesData: CategoriesType[],
   ) {
     const result = categoriesData.map((cat): CategoriesType => {
       if (cat.id === selectedParentNode.id) {
@@ -198,8 +216,8 @@ export function TreeData() {
         console.log("FOund", cat);
         return {
           ...cat,
-          hasChildren: true,
-          childrenCategories: [...cat.childrenCategories, newCategoryData],
+          hasChildren: true, //specify that this parent cat alredy has children (in case it hasnt before)
+          childrenCategories: [...cat.childrenCategories, newCategoryData], //apply at the end oc children the new one
         };
       }
       if (cat.hasChildren) {
@@ -209,7 +227,7 @@ export function TreeData() {
           childrenCategories: embedNewSubcategories(
             newCategoryData,
             selectedParentNode,
-            cat.childrenCategories
+            cat.childrenCategories, //call recursively, this type categories comes from children
           ),
         };
       }
@@ -223,7 +241,7 @@ export function TreeData() {
 
   function renderCategories(categoriesData: CategoriesType[]) {
     return (
-      <div>
+      <div className="ml-2">
         {categoriesData.map((cat) => {
           return (
             <div key={cat.id} className="flex flex-col gap-2">
@@ -264,7 +282,7 @@ export function TreeData() {
                   <Plus onClick={() => setAddNewSubcategory(cat.id)} />
                 )}
               </div>
-
+              {/* render children */}
               <div className="ml-8">
                 {renderCategories(cat.childrenCategories)}
               </div>
@@ -278,12 +296,12 @@ export function TreeData() {
   return <div>{renderCategories(categoriesData)}</div>;
 }
 
-function selectSubcategoriesIds() {
-  // AFTER i have all my categories parsed.
-  // based on the ID passed as parameter.
-  // select all recursively
-  //OR deselect all recursively: removing or adding to IDS array
-}
+// function selectSubcategoriesIds() {
+// }
+// AFTER i have all my categories parsed.
+// based on the ID passed as parameter.
+// select all recursively
+//OR deselect all recursively: removing or adding to IDS array
 
 // hardcoded database
 
@@ -325,7 +343,15 @@ const categories = [
         name: "Nested1-ROOT1",
         parentCategory: { id: 91 },
         hasChildren: true,
-        childrenCategories: [],
+        childrenCategories: [
+          {
+            id: 93,
+            name: "Nested1-ROOT1-nested",
+            parentCategory: { id: 92 },
+            hasChildren: false,
+            childrenCategories: [],
+          },
+        ],
       },
       {
         id: 94,
@@ -378,7 +404,15 @@ const categories = [
         name: "nested1-ROOT3",
         parentCategory: { id: 96 },
         hasChildren: true,
-        childrenCategories: [],
+        childrenCategories: [
+          {
+            id: 98,
+            name: "nested1-ROOT3-nested",
+            parentCategory: { id: 95 },
+            hasChildren: false,
+            childrenCategories: [],
+          },
+        ],
       },
     ],
   },

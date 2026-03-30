@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 function HomePage() {
   const PAGES_ROUTES = [
     {
+      path: "/cypress-tests",
+      title: "Cypress Tests",
+    },
+    {
       path: "/minesweeper-game",
       title: "Minesweeper Game",
     },

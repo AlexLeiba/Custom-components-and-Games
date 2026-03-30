@@ -1,4 +1,4 @@
-type Props<T> =
+type Props =
   | {
       type: "csvToArray";
       csvString: string | undefined;
@@ -10,11 +10,7 @@ type Props<T> =
       csvString?: never;
     };
 
-export function csvParser<T>({
-  type,
-  arrayData = [],
-  csvString = "",
-}: Props<T>) {
+export function csvParser({ type, arrayData = [], csvString = "" }: Props) {
   switch (type) {
     // ARRAY TO CSV
     case "arrayToCsv":
