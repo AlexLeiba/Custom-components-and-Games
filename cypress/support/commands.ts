@@ -35,3 +35,8 @@
 //     }
 //   }
 // }
+
+// Custom Cypress commands
+Cypress.Commands.add("getDataTest" as any, (dataTestSelector) => {
+  return cy.get(`[data-test=${dataTestSelector}]`);
+});

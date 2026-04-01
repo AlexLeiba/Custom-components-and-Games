@@ -14,7 +14,11 @@ function CypressTests() {
   }
   return (
     <div>
-      <h1 data-test="heading">Hello cypress</h1>
+      <div data-test="div-container">
+        <p>Ceau</p>
+        <button>Click</button>
+      </div>
+      <h1 data-test="heading">Hello cypress forms</h1>
 
       <p data-test="paragraph">this is a paragraph</p>
 

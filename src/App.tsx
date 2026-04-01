@@ -23,6 +23,9 @@ import QuizGamePage from "./pages/QuizGamePage";
 import FileParsersPage from "./pages/CsvParserPage";
 import ExcelParserPage from "./pages/ExcelParserPage";
 import CypressTests from "./pages/Cypress/CypressTests";
+import TodoTests from "./pages/Cypress/TodoTests";
+import ApiRequestsTests from "./pages/Cypress/ApiRequestFeedPage";
+import ApiRequestSinglePage from "./pages/Cypress/ApiRequestSinglePage";
 
 function App() {
   const { Toast } = useContext(ToastContext);
@@ -60,7 +63,12 @@ function App() {
           <Route path="/multistep-form-2" element={<SecondStep />} />
           <Route path="/multistep-form-3" element={<ThirdStep />} />
           <Route path="/multistep-form-4" element={<ForthStep />} />
+
+          {/* Cypress */}
           <Route path="/cypress-tests" element={<CypressTests />} />
+          <Route path="/todo" element={<TodoTests />} />
+          <Route path="/requests" element={<ApiRequestsTests />} />
+          <Route path="/requests/:id" element={<ApiRequestSinglePage />} />
         </Routes>
       </BrowserRouter>
     </>
